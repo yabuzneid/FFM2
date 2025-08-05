@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" xmlns:intf="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:CompanyAdminService" xmlns:tns2="http://shared.heimdahl.gearworks.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Oct 06, 2010 (02:39:27 GMT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:CompanyAdminService" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://shared.heimdahl.gearworks.com"/>
+   <import namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="SvDivision">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvAddress">
+    <sequence>
+     <element name="apt" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="streetAddress" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvDate">
+    <sequence>
+     <element name="dateString" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvGpsPosition">
+    <sequence>
+     <element name="coverageStatus" type="xsd:int"/>
+     <element name="heading" type="xsd:double"/>
+     <element name="headingCoordinateSystem" nillable="true" type="xsd:string"/>
+     <element name="latitude" type="xsd:double"/>
+     <element name="longitude" type="xsd:double"/>
+     <element name="positionCoordinateSystem" nillable="true" type="xsd:string"/>
+     <element name="speed" type="xsd:double"/>
+     <element name="timestamp" nillable="true" type="tns1:SvDate"/>
+     <element name="workerName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvCoordinate">
+    <sequence>
+     <element name="latitude" type="xsd:double"/>
+     <element name="longitude" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvWorkzone">
+    <sequence>
+     <element name="circleCenterCoordinate" nillable="true" type="tns1:SvCoordinate"/>
+     <element name="circleRadiusMiles" type="xsd:double"/>
+     <element name="workzoneType" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvLocation">
+    <sequence>
+     <element name="address" nillable="true" type="tns1:SvAddress"/>
+     <element name="contactName" nillable="true" type="xsd:string"/>
+     <element name="contactPhone" nillable="true" type="xsd:string"/>
+     <element name="position" nillable="true" type="tns1:SvGpsPosition"/>
+     <element name="workzone" nillable="true" type="tns1:SvWorkzone"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvString">
+    <sequence>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvServiceOrganization">
+    <sequence>
+     <element name="serviceOrganizationId" nillable="true" type="tns1:SvString"/>
+     <element name="serviceOrganizationName" nillable="true" type="tns1:SvString"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvWorker">
+    <sequence>
+     <element name="activeStatus" type="xsd:boolean"/>
+     <element name="address" nillable="true" type="tns1:SvAddress"/>
+     <element name="divisionName" nillable="true" type="xsd:string"/>
+     <element name="emailAddr" nillable="true" type="xsd:string"/>
+     <element name="faxNumber" nillable="true" type="xsd:string"/>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="ivrAuthenticationNumber" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="middleName" nillable="true" type="xsd:string"/>
+     <element name="mobileNumber" nillable="true" type="xsd:string"/>
+     <element name="notificationMechanisms" nillable="true" type="impl:ArrayOf_xsd_string"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="phoneNumber" nillable="true" type="xsd:string"/>
+     <element name="pin" nillable="true" type="xsd:string"/>
+     <element name="preferredName" nillable="true" type="xsd:string"/>
+     <element name="securityGroupName" nillable="true" type="xsd:string"/>
+     <element name="timezone" nillable="true" type="xsd:string"/>
+     <element name="userName" nillable="true" type="xsd:string"/>
+     <element name="workerType" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvCompany">
+    <sequence>
+     <element name="companyId" type="xsd:int"/>
+     <element name="companyIdentifier" nillable="true" type="xsd:string"/>
+     <element name="companyUrl" nillable="true" type="xsd:string"/>
+     <element name="divisions" nillable="true" type="impl:ArrayOf_tns1_SvDivision"/>
+     <element name="externalCompanyIdentifier" nillable="true" type="xsd:string"/>
+     <element name="location" nillable="true" type="tns1:SvLocation"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="productGUID" nillable="true" type="xsd:string"/>
+     <element name="serviceOrganizations" nillable="true" type="impl:ArrayOf_tns1_SvServiceOrganization"/>
+     <element name="users" nillable="true" type="impl:ArrayOf_tns1_SvWorker"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvDevice">
+    <sequence>
+     <element name="activatedDateTime" nillable="true" type="xsd:string"/>
+     <element name="createdDateTime" nillable="true" type="xsd:string"/>
+     <element name="currentlyLinkedTo" nillable="true" type="xsd:string"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="deviceIdentifier" nillable="true" type="xsd:string"/>
+     <element name="deviceType" nillable="true" type="xsd:string"/>
+     <element name="lastIpAddress" nillable="true" type="xsd:string"/>
+     <element name="serialNumber" nillable="true" type="xsd:string"/>
+     <element name="softwareVersion" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvResult">
+    <sequence>
+     <element name="errorCode" type="xsd:int"/>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="goodResult" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="SvCustomStatusValue">
+    <sequence>
+     <element name="username" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://shared.heimdahl.gearworks.com"/>
+   <import namespace="urn:CompanyAdminService"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns1_SvDivision">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SvDivision[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SvServiceOrganization">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SvServiceOrganization[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SvWorker">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SvWorker[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SvDevice">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SvDevice[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SvCustomStatusValue">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SvCustomStatusValue[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SvResult">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SvResult[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://shared.heimdahl.gearworks.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:CompanyAdminService"/>
+   <import namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ValidationException">
+    <sequence/>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteWorkerRequest">
+
+      <wsdl:part name="workerName" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createWorkerRequest">
+
+      <wsdl:part name="worker" type="tns1:SvWorker"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCompanyRequest">
+
+      <wsdl:part name="svCompany" type="tns1:SvCompany"/>
+
+      <wsdl:part name="linkWorkItemTypes" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteWorkerResponse">
+
+      <wsdl:part name="deleteWorkerReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="ValidationException">
+
+      <wsdl:part name="fault" type="tns2:ValidationException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDeviceResponse">
+
+      <wsdl:part name="createDeviceReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDeviceRequest">
+
+      <wsdl:part name="svDevice" type="tns1:SvDevice"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDivisionsRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceRequest">
+
+      <wsdl:part name="deviceIdentifier" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="linkDeviceToWorkerRequest">
+
+      <wsdl:part name="deviceIdentifier" type="xsd:string"/>
+
+      <wsdl:part name="workerName" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="populateWorkerCustomStatusRequest">
+
+      <wsdl:part name="svCustomStatusValues" type="impl:ArrayOf_tns1_SvCustomStatusValue"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateWorkerRequest">
+
+      <wsdl:part name="worker" type="tns1:SvWorker"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWorkerByNameResponse">
+
+      <wsdl:part name="getWorkerByNameReturn" type="tns1:SvWorker"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWorkersRequest">
+
+      <wsdl:part name="securityGroupFilter" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDeviceRequest">
+
+      <wsdl:part name="svDevice" type="tns1:SvDevice"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="createCompanyResponse">
+
+      <wsdl:part name="createCompanyReturn" type="tns1:SvCompany"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="populateWorkerCustomStatusResponse">
+
+      <wsdl:part name="populateWorkerCustomStatusReturn" type="impl:ArrayOf_tns1_SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrUpdateDeviceRequest">
+
+      <wsdl:part name="svDevice" type="tns1:SvDevice"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDeviceRequest">
+
+      <wsdl:part name="deviceIdentifier" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="linkDeviceToWorkerResponse">
+
+      <wsdl:part name="linkDeviceToWorkerReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrUpdateWorkerResponse">
+
+      <wsdl:part name="createOrUpdateWorkerReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWorkerByNameRequest">
+
+      <wsdl:part name="workerName" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDeviceResponse">
+
+      <wsdl:part name="deleteDeviceReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDivisionsResponse">
+
+      <wsdl:part name="getDivisionsReturn" type="impl:ArrayOf_tns1_SvDivision"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWorkersResponse">
+
+      <wsdl:part name="getWorkersReturn" type="impl:ArrayOf_tns1_SvWorker"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWorkersByNameRequest">
+
+      <wsdl:part name="workerNameArray" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesResponse">
+
+      <wsdl:part name="getDevicesReturn" type="impl:ArrayOf_tns1_SvDevice"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createWorkerResponse">
+
+      <wsdl:part name="createWorkerReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceResponse">
+
+      <wsdl:part name="getDeviceReturn" type="tns1:SvDevice"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDeviceResponse">
+
+      <wsdl:part name="updateDeviceReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrUpdateWorkerRequest">
+
+      <wsdl:part name="worker" type="tns1:SvWorker"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrUpdateDeviceResponse">
+
+      <wsdl:part name="createOrUpdateDeviceReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWorkersByNameResponse">
+
+      <wsdl:part name="getWorkersByNameReturn" type="impl:ArrayOf_tns1_SvWorker"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateWorkerResponse">
+
+      <wsdl:part name="updateWorkerReturn" type="tns1:SvResult"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CompanyAdminWebServiceProxy">
+
+      <wsdl:operation name="createCompany" parameterOrder="svCompany linkWorkItemTypes">
+
+         <wsdl:input message="impl:createCompanyRequest" name="createCompanyRequest"/>
+
+         <wsdl:output message="impl:createCompanyResponse" name="createCompanyResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevice" parameterOrder="svDevice">
+
+         <wsdl:input message="impl:createDeviceRequest" name="createDeviceRequest"/>
+
+         <wsdl:output message="impl:createDeviceResponse" name="createDeviceResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getWorkers" parameterOrder="securityGroupFilter">
+
+         <wsdl:input message="impl:getWorkersRequest" name="getWorkersRequest"/>
+
+         <wsdl:output message="impl:getWorkersResponse" name="getWorkersResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getWorkerByName" parameterOrder="workerName">
+
+         <wsdl:input message="impl:getWorkerByNameRequest" name="getWorkerByNameRequest"/>
+
+         <wsdl:output message="impl:getWorkerByNameResponse" name="getWorkerByNameResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getWorkersByName" parameterOrder="workerNameArray">
+
+         <wsdl:input message="impl:getWorkersByNameRequest" name="getWorkersByNameRequest"/>
+
+         <wsdl:output message="impl:getWorkersByNameResponse" name="getWorkersByNameResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevice" parameterOrder="deviceIdentifier">
+
+         <wsdl:input message="impl:getDeviceRequest" name="getDeviceRequest"/>
+
+         <wsdl:output message="impl:getDeviceResponse" name="getDeviceResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevices">
+
+         <wsdl:input message="impl:getDevicesRequest" name="getDevicesRequest"/>
+
+         <wsdl:output message="impl:getDevicesResponse" name="getDevicesResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteDevice" parameterOrder="deviceIdentifier">
+
+         <wsdl:input message="impl:deleteDeviceRequest" name="deleteDeviceRequest"/>
+
+         <wsdl:output message="impl:deleteDeviceResponse" name="deleteDeviceResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDevice" parameterOrder="svDevice">
+
+         <wsdl:input message="impl:updateDeviceRequest" name="updateDeviceRequest"/>
+
+         <wsdl:output message="impl:updateDeviceResponse" name="updateDeviceResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrUpdateDevice" parameterOrder="svDevice">
+
+         <wsdl:input message="impl:createOrUpdateDeviceRequest" name="createOrUpdateDeviceRequest"/>
+
+         <wsdl:output message="impl:createOrUpdateDeviceResponse" name="createOrUpdateDeviceResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="linkDeviceToWorker" parameterOrder="deviceIdentifier workerName">
+
+         <wsdl:input message="impl:linkDeviceToWorkerRequest" name="linkDeviceToWorkerRequest"/>
+
+         <wsdl:output message="impl:linkDeviceToWorkerResponse" name="linkDeviceToWorkerResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createWorker" parameterOrder="worker">
+
+         <wsdl:input message="impl:createWorkerRequest" name="createWorkerRequest"/>
+
+         <wsdl:output message="impl:createWorkerResponse" name="createWorkerResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateWorker" parameterOrder="worker">
+
+         <wsdl:input message="impl:updateWorkerRequest" name="updateWorkerRequest"/>
+
+         <wsdl:output message="impl:updateWorkerResponse" name="updateWorkerResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrUpdateWorker" parameterOrder="worker">
+
+         <wsdl:input message="impl:createOrUpdateWorkerRequest" name="createOrUpdateWorkerRequest"/>
+
+         <wsdl:output message="impl:createOrUpdateWorkerResponse" name="createOrUpdateWorkerResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteWorker" parameterOrder="workerName">
+
+         <wsdl:input message="impl:deleteWorkerRequest" name="deleteWorkerRequest"/>
+
+         <wsdl:output message="impl:deleteWorkerResponse" name="deleteWorkerResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDivisions">
+
+         <wsdl:input message="impl:getDivisionsRequest" name="getDivisionsRequest"/>
+
+         <wsdl:output message="impl:getDivisionsResponse" name="getDivisionsResponse"/>
+
+         <wsdl:fault message="impl:ValidationException" name="ValidationException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="populateWorkerCustomStatus" parameterOrder="svCustomStatusValues">
+
+         <wsdl:input message="impl:populateWorkerCustomStatusRequest" name="populateWorkerCustomStatusRequest"/>
+
+         <wsdl:output message="impl:populateWorkerCustomStatusResponse" name="populateWorkerCustomStatusResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CompanyAdminService-0.0.1SoapBinding" type="impl:CompanyAdminWebServiceProxy">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createCompany">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createCompanyRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createCompanyResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getWorkers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getWorkersRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getWorkersResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getWorkerByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getWorkerByNameRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getWorkerByNameResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getWorkersByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getWorkersByNameRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getWorkersByNameResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevices">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDevicesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDevicesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrUpdateDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createOrUpdateDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createOrUpdateDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="linkDeviceToWorker">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="linkDeviceToWorkerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="linkDeviceToWorkerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createWorker">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createWorkerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createWorkerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateWorker">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateWorkerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateWorkerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrUpdateWorker">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createOrUpdateWorkerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createOrUpdateWorkerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteWorker">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteWorkerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteWorkerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDivisions">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDivisionsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDivisionsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ValidationException" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="populateWorkerCustomStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="populateWorkerCustomStatusRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.webservice.gearworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="populateWorkerCustomStatusResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CompanyAdminWebServiceProxyService">
+
+      <wsdl:port binding="impl:CompanyAdminService-0.0.1SoapBinding" name="CompanyAdminService-0.0.1">
+
+         <wsdlsoap:address location="https://connectorprod.fieldforcemanager.com/services/CompanyAdminService-0.0.1"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

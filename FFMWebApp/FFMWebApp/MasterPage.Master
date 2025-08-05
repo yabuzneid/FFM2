@@ -1,0 +1,41 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="MasterPage.master.vb" Inherits="FFMWebApp.MasterPage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ComNet Payroll System</title>
+    <link href="main.css" type="text/css" rel="Stylesheet" media="screen" />
+     <link href="print.css" type="text/css" rel="Stylesheet" media="print" />
+    <script src="scripts/jquery.js" type="text/javascript" language="javascript"></script>
+    <script src="scripts/jquery.livequery.js" type="text/javascript" language="javascript"></script>
+    <script src="scripts/jquery.jeditable.js" type="text/javascript" language="javascript"></script>
+    <script src="scripts/jquery.editinplace.packed.js" type="text/javascript" language="javascript"></script>
+    <script src="scripts/jquery.maskedinput.js" type="text/javascript" language="javascript"></script>
+    <script src="scripts/base.js?v1" type="text/javascript" language="javascript"></script>
+
+    <asp:ContentPlaceHolder id="CPH_Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="currentuser"><asp:Literal ID="LIT_CurrentUser" runat="server" /></div>
+    <form id="form1" runat="server">
+    <div id="heading"></div>
+    
+        <asp:Literal id="LIT_MainNav" runat="server"></asp:Literal>
+    
+    
+            <asp:ContentPlaceHolder id="CPH_Wide" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+    
+    <div id="holder">
+        <asp:ContentPlaceHolder id="CPH_MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    
+          <div id="footer">ComNet Communications 2009</div>     
+    </form>
+</body>
+</html>

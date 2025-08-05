@@ -1,0 +1,573 @@
+body {
+	text-align:center;
+	background:url(images/body-bg.gif) top left repeat-x #fff;
+	padding:0;
+	margin:0;
+}
+
+div#heading {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:200px;
+	background:url(images/logo.jpg) top center no-repeat;
+	margin-bottom:-100px;
+}
+
+div#holder {
+	margin:0 auto;
+	width:900px;
+	padding:5px;
+}
+
+h1 {
+	font-family:Arial,Verdana,sans-serif;
+	font-size:28px;
+	font-weight:bold;
+	color:#a01d1e;
+}
+
+h1.payroll {
+	margin:0 0 0 5px;
+	text-align:left;
+	font-size:24px;
+}
+
+h2 {
+	font-family:arial,verdana,sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	color:#a01d1e;
+}
+
+h3 {
+	text-align:left;
+	margin:0;
+	font-family:arial,verdana,sans-serif;
+	font-size:16px;
+	font-weight:bold;
+}
+
+img {
+	border:0;
+}
+
+p.info {
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	color:#666;
+	text-align:left;
+	margin: 10px 0 0 5px;
+}
+
+a {
+	font-family:arial,verdana,sans-serif;
+}
+
+/* -------------------------- MAIN NAV  ---------------------- */
+
+div#mainnav {
+	background-color:#A01D1E;
+	color:#fff;
+	margin:2px auto;
+	padding:4px;
+	width:450px;
+	height:35px;
+	padding:15px 0 0 0;
+	background:url(images/nav-bg.gif) bottom left repeat-x #A01D1E;
+}
+
+div#mainnav div#nav-corner-l {
+	width:8px;
+	height:35px;
+	float:left;
+	background:url(images/nav-corner-left.gif) bottom left no-repeat #FCFCFC;
+}
+
+div#mainnav div#nav-corner-r {
+	width:442px;
+	height:35px;
+	float:left;
+	background:url(images/nav-corner-right.gif) bottom right no-repeat;
+}
+
+div#mainnav a {
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+	text-decoration:none;
+	font-family:arial,helvetica,sans-serif;
+}
+
+div#mainnav a:hover {
+	color:#bbb;
+}
+
+/* -------------------------- TIMESHEET TABLE  ---------------------- */
+
+table.listing {
+	border-collapse:collapse;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	width:100%;
+	margin:10px auto;
+	border:0;
+}
+
+table.listing tr th {
+	background-color:#3f317a;
+	color: #fff;
+	font-weight:bold;
+	border:1px solid #f2f0f8;
+}
+
+table.listing tr td {
+	border-bottom:1px solid #a39aca;
+	padding:2px 4px;
+	background-color:#f2f0f8;
+	color: #3f317a;
+	text-align:left;
+	min-width:30px;
+}
+
+table.listing tr td.jobnumber { 
+	min-width: 140px;
+}
+
+table.listing tr td.map {
+	width:10px;
+	min-width:15px;
+	
+}
+
+table.listing tr.shift.highlight td {
+	background-color:#FEFFC3;
+}
+
+table.listing tr.shift.highlight3 td {
+	background-color:#e64e95;
+}
+
+table.listing tr.shift.highlight4 td {
+	background-color:#4bde4e;
+}
+
+table.listing tr td.edit input {
+	width:30px;
+}
+
+table.listing tr td.edit_date input {
+}
+
+table.listing tr td.edit_date {
+	border-right:1px solid #f2f0f8;
+}
+
+table.listing tr td.edit_comments  {
+	width:130px;
+}
+
+table.listing td button {
+	padding:0;
+	font-size:10px;
+}
+
+table.listing tr td.approval {
+	text-align:center;
+}
+
+table.listing tr.hilight td {
+	background-color:#FEFFC3;
+}
+
+table.listing tr.hilight2 td {
+	background-color:#d7c8a1;
+}
+
+table.listing tr.hilight3 td {
+	background-color:#e64e95;
+}
+
+table.listing tr.hilight4 td {
+	background-color:#4bde4e;
+}
+
+div#ddl_holder {
+	width:100%;
+	text-align:right;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	margin-top:5px;
+}
+
+table#ListPMs {
+	width:300px;
+}
+
+table#ListEmployees {
+	width:450px;
+}
+
+/*new stuff */
+
+table.listing th {
+	text-align:left;
+	padding:8px 3px;
+}
+
+table.listing tr td {
+	border:0;
+	vertical-align:middle;
+}
+
+table.listing tr.shift td {
+	background-color:#d2cedf;
+}
+
+table.listing tr.label {
+	font-weight:bold;
+}
+
+table.listing td span {
+	padding:2px 8px;
+}
+
+table.listing tr.totalsrow td {
+	border-top:1px dashed #3F317A;
+	padding:10px 4px;
+}
+
+span.unapprove {
+	font-size:10px;
+}
+
+table.listing tr.shift td.invalidjobnumber {
+	background-color:#A01D1E;
+	color:#fff;
+}
+
+div.tei-holder {
+	display:none;
+	font-size: 10px;
+	min-width: 200px;
+	background-color: #D2CEDF;
+	padding:3px;
+}
+
+/* -------------------------- PAYROLL TABLE  ---------------------- */
+
+table.payroll {
+	border-collapse:collapse;
+	margin: 0 0 0 5px;
+}
+
+table.payroll th {
+	background-color:#333;
+	color:#ccc;
+	padding:3px;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	border:1px solid #ccc;
+}
+
+table.payroll td {
+	border:1px solid #ccc;
+	font-family:arial,verdana,sans-serif;
+	color:#333;
+	padding:3px;
+	font-size:10px;
+	text-align:center;
+}
+
+table.payroll td.divider {
+	border-right:1px solid #333;
+}	
+
+table.payroll td.name {
+	text-align:left;
+	font-weight:bold;
+}
+
+table.payroll td input {
+	width:25px;
+}
+
+table.payroll td button {
+	padding:0;
+	font-size:10px;
+}
+
+div#typefilter {
+	text-align:left;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	padding:5px;
+	
+}
+
+/* ---------------  CSV EXPORT SCREEN  ----------------- */
+
+table.payroll tr.highlight td {
+	background-color:#ecf168;
+}
+
+table.payroll tr.rowchanged td {
+	background-color:#71d974;
+}
+
+table.payroll tr.error td {
+	background-color:#d84242;
+}
+
+table.payroll input.noedit {
+	border:0;
+	width:65px;
+	color: #333333;
+    font-family: arial,verdana,sans-serif;
+    font-size: 10px; 	
+	background-color:transparent;
+}
+
+table.payroll textarea.noedit {
+	border:0;
+	width:200px;
+	height:30px;
+	color: #333333;
+    font-family: arial,verdana,sans-serif;
+    font-size: 10px; 	
+	background-color:transparent;
+}
+
+div#addrowform {
+	width:600px;
+	margin:0 auto;
+	text-align:center;
+}
+
+div#addrowform table {
+	text-align:left;
+	margin:20px auto 0 auto;
+	background-color:#eee;
+	border:1px solid #bbb;
+}
+
+div#addrowform table tr td.label {
+	text-align:right;
+	font-family:arial,helvetica,sans-serif;
+	font-size:12px;
+}
+
+div#addrowform input.pickdate {
+	width:100px;
+}
+
+/* ---------------  MISC TABLE STUFF  ----------------- */
+
+table.editform {
+	margin:0 auto;
+	width:600px;
+	font-family:arial,verdana,sans-serif;
+	border-spacing:0;
+	border-collapse:collapse;
+}
+
+table.editform tr td {
+	border-bottom:1px solid #aaa;
+	border-top:1px solid #aaa;
+	padding:5px 0;
+	text-align:left;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+}
+
+table.editform td.label {
+	text-align:right;
+	padding:5px;
+	font-size:12px;
+	width:120px;
+}
+
+table.editform td.notes {
+	text-align:left;
+	font-size:10px;
+	color:#444;
+	padding:5px;
+}
+
+table.editform td.actionbuttons {
+	text-align:center;
+	border-bottom:0;
+}
+
+table.payroll thead tr .headerSortUp {
+	background: url(images/desc.gif) top right no-repeat #ddd;
+	background-position:right 7px;
+	padding-right:16px;
+	color:#000;
+}
+table.payroll thead tr .headerSortDown {
+	background: url(images/asc.gif) top right no-repeat #ddd;
+	background-position:right 7px;
+	padding-right:16px;
+	color:#000;
+}
+
+
+/* -------------------------- OTHER  ---------------------- */
+
+span.infolabel {
+	display:block;
+	width:300px;
+	padding:7px;
+	background-color:#55A751;
+	color:#fff;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	margin:10px auto;
+}
+
+span.alertlabelsmall {
+	display:block;
+	padding:7px;
+	background-color:#a52526;
+	color:#fff;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	margin:10px auto;
+}
+
+div#newemployee {
+	margin: 0 auto;
+	text-align:left;
+	width:450px;
+}
+
+div#newshift {
+	margin: 0 auto;
+	text-align:left;
+	width:100%;
+}
+
+textarea.weeknotes {
+	width:350px;
+	height:50px;
+}
+
+div.weeknotes {
+	width:360px;
+	font-family:arial,verdana,sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	height:80px;
+	border:1px dashed #bbb;
+	text-align:left;
+	padding:4px;
+	color:#A01D1E;
+}
+
+div.weeknotes textarea {
+	clear:both;
+	width:350px;
+}
+
+div#currentuser {
+	position:absolute;
+	top:110px;
+	right:5px;
+	font-family:arial,verdana,sans-serif;
+	font-size:11px;
+}
+
+div#synccontrol {
+	position:absolute;
+	top:110px;
+	left:5px;
+	font-family:arial,verdana,sans-serif;
+	font-size:11px;
+}
+
+span.notes {
+	text-align:left;
+	font-size:10px;
+	color:#444;
+	padding:5px;
+	font-family:arial,verdana,sans-serif;
+}
+
+span.formlabel {
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+}
+
+
+/* -------------------------- FOOTER  ---------------------- */
+
+div#footer {
+	width:100%;
+	margin-top:50px;
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#3F317A;
+	background:url(images/footer-bg.gif) top left repeat-x;
+	height:30px;
+	padding:20px 0 0 0;
+
+}
+
+a.additional_nav {
+	color:#A01D1E;
+}
+/* ---------------  DATE PICKER  ----------------- */
+
+table.daterange {
+margin:0 auto;
+}
+
+table.daterange td {
+	text-align:left;
+}
+
+table.daterange td.label {
+	font-family:arial,verdana,sans-serif;
+	font-size:12px;
+	text-align:right;
+}
+
+table.daterange input {
+	width:80px;
+}
+
+a.dp-choose-date {
+	float: left;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 5px 3px 0;
+	display: block;
+	text-indent: -2000px;
+	overflow: hidden;
+	background: url(images/icon-calendar-16.png) no-repeat; 
+}
+
+a.dp-choose-date.dp-disabled {
+	background-position: 0 -20px;
+	cursor: default;
+}
+
+input.dp-applied {
+	width: 140px;
+	float: left;
+}
+
+table.listing td.pagination {
+	padding: 8px 2px;
+	font-weight: bold;
+}
+
+table.listing td.pagination span.current {
+	background-color: #3f317a;
+	color: #fff;
+}

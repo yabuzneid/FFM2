@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|d:\\projects\\ventrya\\bitbucket\\ffm_net_4.8\\ffmwebapp\\ffmwebapp\\employees.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|solutionrelative:employees.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\employees.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|solutionrelative:employees.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\addtime.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|solutionrelative:addtime.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|FFMWebApp||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\landing.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EC864B9-1DC0-4990-A17A-B85CC82E38BB}|FFMWebApp.vbproj|solutionrelative:landing.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "employees.aspx.vb",
+              "DocumentMoniker": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\employees.aspx.vb",
+              "RelativeDocumentMoniker": "employees.aspx.vb",
+              "ToolTip": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\employees.aspx.vb",
+              "RelativeToolTip": "employees.aspx.vb",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwD4AAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-30T17:37:39.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "employees.aspx",
+              "DocumentMoniker": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\employees.aspx",
+              "RelativeDocumentMoniker": "employees.aspx",
+              "ToolTip": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\employees.aspx",
+              "RelativeToolTip": "employees.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-30T17:37:08.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FFMWebApp",
+              "DocumentMoniker": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\FFMWebApp.vbproj",
+              "RelativeDocumentMoniker": "FFMWebApp.vbproj",
+              "ToolTip": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\FFMWebApp.vbproj",
+              "RelativeToolTip": "FFMWebApp.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-17T19:30:32.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "addtime.aspx",
+              "DocumentMoniker": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\addtime.aspx",
+              "RelativeDocumentMoniker": "addtime.aspx",
+              "ToolTip": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\addtime.aspx",
+              "RelativeToolTip": "addtime.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-02-11T14:37:16.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "landing.aspx",
+              "DocumentMoniker": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\landing.aspx",
+              "RelativeDocumentMoniker": "landing.aspx",
+              "ToolTip": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\landing.aspx",
+              "RelativeToolTip": "landing.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-02-11T14:36:59.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "D:\\Projects\\ventrya\\bitbucket\\ffm_net_4.8\\FFMWebApp\\FFMWebApp\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-02-11T14:35:22.231Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

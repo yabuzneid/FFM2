@@ -1,0 +1,1526 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FFMWebApp
+</name>
+</assembly>
+<members>
+<member name="T:FFMWebApp.My.MyWebExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:FFMWebApp.My.MyWebExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:FFMWebApp.My.MyWebExtension.User">
+ <summary>
+ Returns information for the current Web user.
+ </summary>
+</member>
+<member name="P:FFMWebApp.My.MyWebExtension.Request">
+ <summary>
+ Returns Request object.
+ </summary>
+</member>
+<member name="P:FFMWebApp.My.MyWebExtension.Response">
+ <summary>
+ Returns Response object.
+ </summary>
+</member>
+<member name="P:FFMWebApp.My.MyWebExtension.Log">
+ <summary>
+ Returns the Asp log object.
+ </summary>
+</member>
+<member name="F:FFMWebApp.addtime._LBL_Info">
+<summary>
+LBL_Info control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._Panel_Employees">
+<summary>
+Panel_Employees control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_Employee">
+<summary>
+DDL_Employee control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._RB_SingleDay">
+<summary>
+RB_SingleDay control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._RB_MultiDay">
+<summary>
+RB_MultiDay control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._Panel_SingleDay">
+<summary>
+Panel_SingleDay control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_StartDate">
+<summary>
+TXT_StartDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_StartTime">
+<summary>
+DDL_StartTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_EndDate">
+<summary>
+TXT_EndDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_EndTime">
+<summary>
+DDL_EndTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._Panel_MultiDay">
+<summary>
+Panel_MultiDay control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_StartDateMulti">
+<summary>
+TXT_StartDateMulti control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_EndDateMulti">
+<summary>
+TXT_EndDateMulti control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_StartTimeMulti">
+<summary>
+DDL_StartTimeMulti control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_EndTimeMulti">
+<summary>
+DDL_EndTimeMulti control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._SDS_PMs">
+<summary>
+SDS_PMs control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_PM">
+<summary>
+DDL_PM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_State">
+<summary>
+DDL_State control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_JobNumber">
+<summary>
+TXT_JobNumber control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_PW">
+<summary>
+DDL_PW control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_Project">
+<summary>
+TXT_Project control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_ShiftType">
+<summary>
+DDL_ShiftType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_Travel">
+<summary>
+DDL_Travel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_PerDiem">
+<summary>
+DDL_PerDiem control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._DDL_Injured">
+<summary>
+DDL_Injured control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._TXT_Comments">
+<summary>
+TXT_Comments control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._BTN_Submit1">
+<summary>
+BTN_Submit1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.addtime._BTN_Cancel">
+<summary>
+BTN_Cancel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.GlobalClass._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp._Default._Head1">
+<summary>
+Head1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp._Default._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp._Default._LBL_Info">
+<summary>
+LBL_Info control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp._Default._TXT_Username">
+<summary>
+TXT_Username control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp._Default._TXT_Password">
+<summary>
+TXT_Password control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp._Default._BTN_Login">
+<summary>
+BTN_Login control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._LBL_Info">
+<summary>
+LBL_Info control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._Panel_employeelist">
+<summary>
+Panel_employeelist control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._SDS_EmployeeList">
+<summary>
+SDS_EmployeeList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._GW_EmployeeList">
+<summary>
+GW_EmployeeList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._Panel_EditUser">
+<summary>
+Panel_EditUser control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._LIT_Heading">
+<summary>
+LIT_Heading control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._Panel_UsernameBox">
+<summary>
+Panel_UsernameBox control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_Username">
+<summary>
+TXT_Username control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._Panel_UsernameLabel">
+<summary>
+Panel_UsernameLabel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._LIT_Username">
+<summary>
+LIT_Username control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_Email">
+<summary>
+TXT_Email control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_password">
+<summary>
+TXT_password control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_firstname">
+<summary>
+TXT_firstname control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_LastName">
+<summary>
+TXT_LastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_Initials">
+<summary>
+TXT_Initials control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_Cellphone">
+<summary>
+TXT_Cellphone control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._SDS_Offices">
+<summary>
+SDS_Offices control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._DDL_Office">
+<summary>
+DDL_Office control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._DDL_Department">
+<summary>
+DDL_Department control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._DDL_Type">
+<summary>
+DDL_Type control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._DDL_EmployeeGroup">
+<summary>
+DDL_EmployeeGroup control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_Worker">
+<summary>
+CHK_Worker control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_PartTime">
+<summary>
+CHK_PartTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_PM">
+<summary>
+CHK_PM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_Clerk">
+<summary>
+CHK_Clerk control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_Active">
+<summary>
+CHK_Active control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_ReadOnlyAccess">
+<summary>
+CHK_ReadOnlyAccess control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._CHK_LimitedView">
+<summary>
+CHK_LimitedView control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_PerDiem">
+<summary>
+TXT_PerDiem control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_TravelCompany">
+<summary>
+TXT_TravelCompany control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_TravelPersonal">
+<summary>
+TXT_TravelPersonal control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._TXT_PayrollID">
+<summary>
+TXT_PayrollID control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._BTN_Submit">
+<summary>
+BTN_Submit control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.employees._BTN_Cancel">
+<summary>
+BTN_Cancel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.entertime._DDL_DateRange">
+<summary>
+DDL_DateRange control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.entertime._LBL_Info">
+<summary>
+LBL_Info control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.entertime._LIT_Main">
+<summary>
+LIT_Main control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.ExportList._GV_Files">
+<summary>
+GV_Files control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.generatecsv._LIT_Grid">
+<summary>
+LIT_Grid control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.generatecsv._BTN_Submit">
+<summary>
+BTN_Submit control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.JobReport._LIT_Report">
+<summary>
+LIT_Report control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._DDL_DateRange">
+<summary>
+DDL_DateRange control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._SDS_Office">
+<summary>
+SDS_Office control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._DDL_Office">
+<summary>
+DDL_Office control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._LIT_Main">
+<summary>
+LIT_Main control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._LIT_OfficeTotals">
+<summary>
+LIT_OfficeTotals control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._LIT_UnprocessedWarnings">
+<summary>
+LIT_UnprocessedWarnings control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._BTN_Payroll">
+<summary>
+BTN_Payroll control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._BTN_Lock">
+<summary>
+BTN_Lock control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.landing._BTN_Unlock">
+<summary>
+BTN_Unlock control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.MasterPage._CPH_Head">
+<summary>
+CPH_Head control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.MasterPage._LIT_CurrentUser">
+<summary>
+LIT_CurrentUser control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.MasterPage._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.MasterPage._LIT_MainNav">
+<summary>
+LIT_MainNav control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.MasterPage._CPH_Wide">
+<summary>
+CPH_Wide control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.MasterPage._CPH_MainContent">
+<summary>
+CPH_MainContent control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.OpenShifts._LIT_Report">
+<summary>
+LIT_Report control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.payroll._DDL_Type">
+<summary>
+DDL_Type control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.payroll._SDS_Office">
+<summary>
+SDS_Office control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.payroll._DDL_Office">
+<summary>
+DDL_Office control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.payroll._LIT_Grid">
+<summary>
+LIT_Grid control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.payroll_spreadsheet._LIT_Grid">
+<summary>
+LIT_Grid control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.payroll_spreadsheetv2._LIT_Grid">
+<summary>
+LIT_Grid control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.printreport._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.printreport._LIT_Page">
+<summary>
+LIT_Page control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._SDS_Users">
+<summary>
+SDS_Users control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._SDS_PMs">
+<summary>
+SDS_PMs control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._TXT_StartDate">
+<summary>
+TXT_StartDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._TXT_EndDate">
+<summary>
+TXT_EndDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._DDL_User">
+<summary>
+DDL_User control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._DDL_PM">
+<summary>
+DDL_PM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._BTN_SubmitDates">
+<summary>
+BTN_SubmitDates control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_notes._LIT_Results">
+<summary>
+LIT_Results control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob._SDS_Users">
+<summary>
+SDS_Users control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob._TXT_StartDate">
+<summary>
+TXT_StartDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob._TXT_EndDate">
+<summary>
+TXT_EndDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob._DDL_User">
+<summary>
+DDL_User control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob._BTN_SubmitDates">
+<summary>
+BTN_SubmitDates control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob._LIT_Results">
+<summary>
+LIT_Results control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2_excel._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._SDS_Users">
+<summary>
+SDS_Users control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._TXT_StartDate">
+<summary>
+TXT_StartDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._TXT_EndDate">
+<summary>
+TXT_EndDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._TXT_JobNumber">
+<summary>
+TXT_JobNumber control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._CHK_AVOnly">
+<summary>
+CHK_AVOnly control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._BTN_SubmitDates">
+<summary>
+BTN_SubmitDates control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.report_timebyjob2._LIT_Results">
+<summary>
+LIT_Results control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.reports._LIT_JobNumberDropDown">
+<summary>
+LIT_JobNumberDropDown control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.reports._startdate">
+<summary>
+startdate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.reports._enddate">
+<summary>
+enddate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._LIT_SyncData">
+<summary>
+LIT_SyncData control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._LIT_DatesDropDown">
+<summary>
+LIT_DatesDropDown control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._DDL_DateRange">
+<summary>
+DDL_DateRange control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._DDL_Offices">
+<summary>
+DDL_Offices control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._DDL_Type">
+<summary>
+DDL_Type control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._DDL_ShowAsPM">
+<summary>
+DDL_ShowAsPM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._LIT_WorkerList">
+<summary>
+LIT_WorkerList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._LIT_ReportLink">
+<summary>
+LIT_ReportLink control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._LIT_SpeedReport">
+<summary>
+LIT_SpeedReport control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test._LIT_ProjectList">
+<summary>
+LIT_ProjectList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._LIT_SyncData">
+<summary>
+LIT_SyncData control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._LIT_DatesDropDown">
+<summary>
+LIT_DatesDropDown control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._DDL_DateRange">
+<summary>
+DDL_DateRange control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._DDL_Offices">
+<summary>
+DDL_Offices control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._DDL_Type">
+<summary>
+DDL_Type control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._DDL_ShowAsPM">
+<summary>
+DDL_ShowAsPM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._LIT_WorkerList">
+<summary>
+LIT_WorkerList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._LIT_ReportLink">
+<summary>
+LIT_ReportLink control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._LIT_SpeedReport">
+<summary>
+LIT_SpeedReport control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets_test2._LIT_ProjectList">
+<summary>
+LIT_ProjectList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._LIT_SyncData">
+<summary>
+LIT_SyncData control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._LIT_DatesDropDown">
+<summary>
+LIT_DatesDropDown control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._DDL_DateRange">
+<summary>
+DDL_DateRange control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._DDL_Offices">
+<summary>
+DDL_Offices control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._DDL_Type">
+<summary>
+DDL_Type control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._DDL_ShowAsPM">
+<summary>
+DDL_ShowAsPM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._LIT_WorkerList">
+<summary>
+LIT_WorkerList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._LIT_ReportLink">
+<summary>
+LIT_ReportLink control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._LIT_SpeedReport">
+<summary>
+LIT_SpeedReport control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets._LIT_ProjectList">
+<summary>
+LIT_ProjectList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._LIT_SyncData">
+<summary>
+LIT_SyncData control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._LIT_DatesDropDown">
+<summary>
+LIT_DatesDropDown control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._DDL_DateRange">
+<summary>
+DDL_DateRange control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._DDL_Offices">
+<summary>
+DDL_Offices control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._DDL_Type">
+<summary>
+DDL_Type control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._DDL_ShowAsPM">
+<summary>
+DDL_ShowAsPM control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._LIT_WorkerList">
+<summary>
+LIT_WorkerList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._LIT_ReportLink">
+<summary>
+LIT_ReportLink control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.timesheets2._LIT_ProjectList">
+<summary>
+LIT_ProjectList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FFMWebApp.worker._LIT_Main">
+<summary>
+LIT_Main control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+</members>
+</doc>

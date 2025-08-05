@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns3="urn:JobService" xmlns:tns1="urn:UserStatusService" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://shared.heimdahl.gearworks.com" xmlns:impl="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" xmlns:intf="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" targetNamespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:UserStatusService">
+      <xsd:import namespace="http://shared.heimdahl.gearworks.com" />
+      <xsd:import namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" />
+      <xsd:import namespace="urn:JobService" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="SvDate">
+        <xsd:sequence>
+          <xsd:element name="dateString" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvTimesheet">
+        <xsd:sequence>
+          <xsd:element name="endDate" nillable="true" type="tns1:SvDate" />
+          <xsd:element name="startDate" nillable="true" type="tns1:SvDate" />
+          <xsd:element name="timecardName" nillable="true" type="xsd:string" />
+          <xsd:element name="workerName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvAddress">
+        <xsd:sequence>
+          <xsd:element name="apt" nillable="true" type="xsd:string" />
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="streetAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="zip" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvGpsPosition">
+        <xsd:sequence>
+          <xsd:element name="coverageStatus" type="xsd:int" />
+          <xsd:element name="heading" type="xsd:double" />
+          <xsd:element name="headingCoordinateSystem" nillable="true" type="xsd:string" />
+          <xsd:element name="latitude" type="xsd:double" />
+          <xsd:element name="longitude" type="xsd:double" />
+          <xsd:element name="positionCoordinateSystem" nillable="true" type="xsd:string" />
+          <xsd:element name="speed" type="xsd:double" />
+          <xsd:element name="timestamp" nillable="true" type="tns1:SvDate" />
+          <xsd:element name="workerName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvCoordinate">
+        <xsd:sequence>
+          <xsd:element name="latitude" type="xsd:double" />
+          <xsd:element name="longitude" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvWorkzone">
+        <xsd:sequence>
+          <xsd:element name="circleCenterCoordinate" nillable="true" type="tns1:SvCoordinate" />
+          <xsd:element name="circleRadiusMiles" type="xsd:double" />
+          <xsd:element name="workzoneType" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvLocation">
+        <xsd:sequence>
+          <xsd:element name="address" nillable="true" type="tns1:SvAddress" />
+          <xsd:element name="contactName" nillable="true" type="xsd:string" />
+          <xsd:element name="contactPhone" nillable="true" type="xsd:string" />
+          <xsd:element name="position" nillable="true" type="tns1:SvGpsPosition" />
+          <xsd:element name="workzone" nillable="true" type="tns1:SvWorkzone" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvUserAction">
+        <xsd:sequence>
+          <xsd:element name="actionName" nillable="true" type="xsd:string" />
+          <xsd:element name="executionDateTime" nillable="true" type="tns1:SvDate" />
+          <xsd:element name="form" nillable="true" type="tns3:SvForm" />
+          <xsd:element name="location" nillable="true" type="tns1:SvLocation" />
+          <xsd:element name="workerName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvResult">
+        <xsd:sequence>
+          <xsd:element name="errorCode" type="xsd:int" />
+          <xsd:element name="errorMessage" nillable="true" type="xsd:string" />
+          <xsd:element name="goodResult" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1">
+      <xsd:import namespace="http://shared.heimdahl.gearworks.com" />
+      <xsd:import namespace="urn:JobService" />
+      <xsd:import namespace="urn:UserStatusService" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ArrayOf_tns1_SvTimesheet">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:SvTimesheet[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns3_SvFormField">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns3:SvFormField[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_SvUserAction">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:SvUserAction[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://shared.heimdahl.gearworks.com">
+      <xsd:import namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" />
+      <xsd:import namespace="urn:JobService" />
+      <xsd:import namespace="urn:UserStatusService" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ValidationException">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:JobService">
+      <xsd:import namespace="http://shared.heimdahl.gearworks.com" />
+      <xsd:import namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" />
+      <xsd:import namespace="urn:UserStatusService" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="SvFormField">
+        <xsd:sequence>
+          <xsd:element name="fieldName" nillable="true" type="xsd:string" />
+          <xsd:element name="fieldValue" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SvForm">
+        <xsd:sequence>
+          <xsd:element name="formData" nillable="true" type="intf:ArrayOf_tns3_SvFormField" />
+          <xsd:element name="formName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getTimecardActionsByWorkerNameResponse">
+    <wsdl:part name="getTimecardActionsByWorkerNameReturn" type="intf:ArrayOf_tns1_SvUserAction" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="submitUserActionResponse">
+    <wsdl:part name="submitUserActionReturn" type="tns1:SvResult" />
+  </wsdl:message>
+  <wsdl:message name="getTimesheetsByWorkerNameResponse">
+    <wsdl:part name="getTimesheetsByWorkerNameReturn" type="intf:ArrayOf_tns1_SvTimesheet" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getUserFormsRequest">
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getUserFormsByFormNameResponse">
+    <wsdl:part name="getUserFormsByFormNameReturn" type="intf:ArrayOf_tns1_SvUserAction" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getUserFormsByWorkerNameResponse">
+    <wsdl:part name="getUserFormsByWorkerNameReturn" type="intf:ArrayOf_tns1_SvUserAction" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="submitUserActionRequest">
+    <wsdl:part name="userAction" type="tns1:SvUserAction" />
+  </wsdl:message>
+  <wsdl:message name="getTimesheetsByWorkerNameRequest">
+    <wsdl:part name="workerName" type="xsd:string" />
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getTimesheetsResponse">
+    <wsdl:part name="getTimesheetsReturn" type="intf:ArrayOf_tns1_SvTimesheet" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getUserFormsResponse">
+    <wsdl:part name="getUserFormsReturn" type="intf:ArrayOf_tns1_SvUserAction" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getTimesheetsRequest">
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getTimecardActionsResponse">
+    <wsdl:part name="getTimecardActionsReturn" type="intf:ArrayOf_tns1_SvUserAction" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getUserFormsByWorkerNameRequest">
+    <wsdl:part name="workerName" type="xsd:string" />
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getTimecardActionsRequest">
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getUserFormsByFormNameRequest">
+    <wsdl:part name="formName" type="xsd:string" />
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="getTimecardActionsByWorkerNameRequest">
+    <wsdl:part name="workerName" type="xsd:string" />
+    <wsdl:part name="start" type="tns1:SvDate" />
+    <wsdl:part name="end" type="tns1:SvDate" />
+  </wsdl:message>
+  <wsdl:message name="ValidationException">
+    <wsdl:part name="fault" type="tns2:ValidationException" />
+  </wsdl:message>
+  <wsdl:portType name="UserStatusWebServiceProxy">
+    <wsdl:operation name="getTimesheets" parameterOrder="start end">
+      <wsdl:input name="getTimesheetsRequest" message="intf:getTimesheetsRequest" />
+      <wsdl:output name="getTimesheetsResponse" message="intf:getTimesheetsResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimesheetsByWorkerName" parameterOrder="workerName start end">
+      <wsdl:input name="getTimesheetsByWorkerNameRequest" message="intf:getTimesheetsByWorkerNameRequest" />
+      <wsdl:output name="getTimesheetsByWorkerNameResponse" message="intf:getTimesheetsByWorkerNameResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimecardActions" parameterOrder="start end">
+      <wsdl:input name="getTimecardActionsRequest" message="intf:getTimecardActionsRequest" />
+      <wsdl:output name="getTimecardActionsResponse" message="intf:getTimecardActionsResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimecardActionsByWorkerName" parameterOrder="workerName start end">
+      <wsdl:input name="getTimecardActionsByWorkerNameRequest" message="intf:getTimecardActionsByWorkerNameRequest" />
+      <wsdl:output name="getTimecardActionsByWorkerNameResponse" message="intf:getTimecardActionsByWorkerNameResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserForms" parameterOrder="start end">
+      <wsdl:input name="getUserFormsRequest" message="intf:getUserFormsRequest" />
+      <wsdl:output name="getUserFormsResponse" message="intf:getUserFormsResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserFormsByWorkerName" parameterOrder="workerName start end">
+      <wsdl:input name="getUserFormsByWorkerNameRequest" message="intf:getUserFormsByWorkerNameRequest" />
+      <wsdl:output name="getUserFormsByWorkerNameResponse" message="intf:getUserFormsByWorkerNameResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserFormsByFormName" parameterOrder="formName start end">
+      <wsdl:input name="getUserFormsByFormNameRequest" message="intf:getUserFormsByFormNameRequest" />
+      <wsdl:output name="getUserFormsByFormNameResponse" message="intf:getUserFormsByFormNameResponse" />
+      <wsdl:fault name="ValidationException" message="intf:ValidationException" />
+    </wsdl:operation>
+    <wsdl:operation name="submitUserAction" parameterOrder="userAction">
+      <wsdl:input name="submitUserActionRequest" message="intf:submitUserActionRequest" />
+      <wsdl:output name="submitUserActionResponse" message="intf:submitUserActionResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserStatusService-0.0.1SoapBinding" type="intf:UserStatusWebServiceProxy">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getTimesheets">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimesheetsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getTimesheetsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimesheetsByWorkerName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimesheetsByWorkerNameRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getTimesheetsByWorkerNameResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimecardActions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimecardActionsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getTimecardActionsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimecardActionsByWorkerName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimecardActionsByWorkerNameRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getTimecardActionsByWorkerNameResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserForms">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getUserFormsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getUserFormsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserFormsByWorkerName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getUserFormsByWorkerNameRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getUserFormsByWorkerNameResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserFormsByFormName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getUserFormsByFormNameRequest">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getUserFormsByFormNameResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationException">
+        <wsdlsoap:fault use="encoded" name="ValidationException" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitUserAction">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="submitUserActionRequest">
+        <wsdlsoap:body use="encoded" namespace="http://service.webservice.gearworks.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="submitUserActionResponse">
+        <wsdlsoap:body use="encoded" namespace="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserStatusWebServiceProxyService">
+    <wsdl:port name="UserStatusService-0.0.1" binding="intf:UserStatusService-0.0.1SoapBinding">
+      <wsdlsoap:address location="http://connectorcs.etrace.com/services/services/UserStatusService-0.0.1" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
