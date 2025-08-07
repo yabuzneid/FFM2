@@ -4,7 +4,6 @@ Imports System.Data.SqlClient
 
 Partial Class ExportList
     Inherits GlobalClass
-
     Sub page_load()
 
         'LIT_FileListing.Text = GetFileList()
@@ -23,7 +22,7 @@ Partial Class ExportList
         Dim returnstring As String = "<table>"
 
 
-        Dim Files As String() = IO.Directory.GetFiles(Server.MapPath(".\SpreadsheetLogs\")) 'second param for file type
+        Dim Files As String() = IO.Directory.GetFiles(Server.MapPath(".\SpreadsheetLogs\"))
 
         System.Array.Sort(Of String)(Files)
 
@@ -41,36 +40,59 @@ Partial Class ExportList
         Try
             Dim dt As DataTable = New DataTable
             Dim FileName As String, CreatedBy As String = "", CutUnderscore As Integer, CutPeriod As Integer
-
             dt.Columns.Add(New DataColumn("Name"))
             dt.Columns.Add(New DataColumn("User"))
             dt.Columns.Add(New DataColumn("Date"))
 
-            For Each file As IO.FileInfo In New IO.DirectoryInfo(Server.MapPath(".\SpreadsheetLogs\")).GetFiles
-                Dim dr As DataRow = dt.NewRow
+            Dim directoryPath As String = Server.MapPath(".\SpreadsheetLogs\")
 
+            If Not IO.Directory.Exists(directoryPath) Then
+                IO.Directory.CreateDirectory(directoryPath)
+                Dim emptyDv As DataView = New DataView(dt)
+                Return emptyDv
+            End If
+
+            Dim dirInfo As New IO.DirectoryInfo(directoryPath)
+
+            Dim files() As IO.FileInfo = dirInfo.GetFiles()
+            If files.Length = 0 Then
+                Dim emptyDv As DataView = New DataView(dt)
+                Return emptyDv
+            End If
+
+            For Each file As IO.FileInfo In files
+                Dim dr As DataRow = dt.NewRow
                 FileName = file.Name
 
                 CutUnderscore = InStr(FileName, "_")
-                CreatedBy = FileName.Substring(CutUnderscore, FileName.Length - CutUnderscore)
-                CutPeriod = InStr(CreatedBy, ".")
-                CreatedBy = CreatedBy.Substring(0, CutPeriod - 1)
-
+                If CutUnderscore > 0 Then
+                    CreatedBy = FileName.Substring(CutUnderscore, FileName.Length - CutUnderscore)
+                    CutPeriod = InStr(CreatedBy, ".")
+                    If CutPeriod > 0 Then
+                        CreatedBy = CreatedBy.Substring(0, CutPeriod - 1)
+                    End If
+                Else
+                    CreatedBy = "Unknown"
+                End If
 
                 dr(0) = "<a href=""/ffm/SpreadSheetLogs/" & FileName & """ target=""_blank"">" & file.Name & "</a>"
                 dr(1) = GetUsername(CreatedBy)
                 dr(2) = file.LastWriteTime
-
                 dt.Rows.Add(dr)
             Next
 
             Dim dv As DataView = New DataView(dt)
             dv.Sort = "Name desc"
             Return dv
-        Catch ex As Exception
-            Response.Write(ex.ToString)
 
-            Return Nothing
+        Catch ex As Exception
+            Response.Write("Error in Fileinfo_To_DataTable: " & ex.ToString)
+
+            Dim dt As DataTable = New DataTable
+            dt.Columns.Add(New DataColumn("Name"))
+            dt.Columns.Add(New DataColumn("User"))
+            dt.Columns.Add(New DataColumn("Date"))
+            Return New DataView(dt)
         End Try
     End Function
 
