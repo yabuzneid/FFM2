@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="addtime.aspx" />
     <Content Include="App_Code\GlobalClass.aspx" />
+    <Content Include="ax-edittimesheet.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="employees.aspx" />
     <Content Include="entertime.aspx" />
@@ -167,6 +168,9 @@
     <Compile Include="App_Code\GlobalClass.aspx.vb">
       <DependentUpon>GlobalClass.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ax-edittimesheet.aspx.vb">
+      <DependentUpon>ax-edittimesheet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>

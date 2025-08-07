@@ -1,11 +1,11 @@
 ﻿
 Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices.ComTypes
 
 Partial Class report_timebyjob2_excel
     Inherits GlobalClass
 
     Sub page_load()
-
         Dim FileName As String = "AV-Dept-report.xls"
 
         Response.Clear()
@@ -17,70 +17,134 @@ Partial Class report_timebyjob2_excel
 
     End Sub
 
-
     Function GenerateReport() As String
 
-        Dim sEmployeeQuery As String = Session("AVDeptReportQuery")
-        Dim StartDate As String = Session("AVDeptReportStartTime")
-        Dim EndDate As String = Session("AVDeptReportEndTime")
+        Dim sEmployeeQuery As String = TryCast(Session("AVDeptReportQuery"), String)
+        Dim StartDate As String
+        Dim EndDate As String
+        If Session("AVDeptReportStartTime") IsNot Nothing Then
+            StartDate = Convert.ToDateTime(Session("AVDeptReportStartTime")).ToString("yyyy-MM-dd HH:mm:ss")
+        End If
+
+        If Session("AVDeptReportEndTime") IsNot Nothing Then
+            EndDate = Convert.ToDateTime(Session("AVDeptReportEndTime")).ToString("yyyy-MM-dd HH:mm:ss")
+        End If
+        If String.IsNullOrEmpty(sEmployeeQuery) OrElse String.IsNullOrEmpty(StartDate) OrElse String.IsNullOrEmpty(EndDate) Then
+            Return "ERROR: Missing session data (query or dates)."
+        End If
 
         Session.Remove("AVDeptReportQuery")
         Session.Remove("AVDeptReportStartTime")
         Session.Remove("AVDeptReportEndTime")
 
-        Dim ReturnString As String = ""
-        Dim TotalHours As Double, OTHours As Double, StandardHours As Double
-
         Dim strResult As String = "<table class=""listing"" style=""width:250px;"" id=""ListEmployees"">"
-        Dim strEmployeeList As String = ""
-        strResult = strResult & "<tr><th>Job Number</th><th>Employee</th><th>Standard Time</th><th>Overtime</th></tr>"
-
-        Dim sFilter As String = ""
-
+        strResult &= "<tr><th>Job Number</th><th>Employee</th><th>Standard Time</th><th>Overtime</th></tr>"
 
         Dim connEmployees As New SqlConnection(sConnection)
         Dim cmdEmplyees As New SqlCommand(sEmployeeQuery, connEmployees)
-        Dim drEmployees As SqlDataReader
         cmdEmplyees.Parameters.Add(New SqlParameter("@StartTime", StartDate))
         cmdEmplyees.Parameters.Add(New SqlParameter("@EndTime", EndDate))
 
         Try
             connEmployees.Open()
 
-            drEmployees = cmdEmplyees.ExecuteReader(Data.CommandBehavior.CloseConnection)
+            Using drEmployees As SqlDataReader = cmdEmplyees.ExecuteReader(CommandBehavior.CloseConnection)
+                While drEmployees.Read()
+                    Dim loopJobNumber As String = drEmployees("fJobNumber").ToString()
+                    Dim loopEmployeeID As Integer = Convert.ToInt32(drEmployees("UserPerformed"))
+                    Dim loopEmployeeFullName As String = drEmployees("EmployeeFullName").ToString()
 
-            Dim loopJobNumber As String, loopEmployeeID As Integer, loopEmployeeFullName As String = ""
+                    Dim TotalHours As Double = GetTotalHours(loopJobNumber, StartDate, EndDate, loopEmployeeID)
+                    Dim OTHours As Double = GetOvertimeByJob(loopJobNumber, StartDate, EndDate, loopEmployeeID)
+                    Dim StandardHours As Double = TotalHours - OTHours
 
-            While drEmployees.Read
+                    strResult &= "<tr>"
+                    strResult &= "<td class=""jobnumber"">" & loopJobNumber & "</td>"
+                    strResult &= "<td>" & loopEmployeeFullName & "</td>"
+                    strResult &= "<td>" & StandardHours.ToString("F2") & "</td>"
+                    strResult &= "<td>" & OTHours.ToString("F2") & "</td>"
+                    strResult &= "</tr>"
+                End While
+            End Using
 
-                loopJobNumber = drEmployees.Item("fJobNumber")
-                loopEmployeeID = drEmployees.Item("UserPerformed")
-                loopEmployeeFullName = drEmployees.Item("EmployeeFullName")
+            strResult &= "</table>"
 
-                TotalHours = GetTotalHours(loopJobNumber, StartDate, EndDate, loopEmployeeID)
-                OTHours = GetOvertimeByJob(loopJobNumber, StartDate, EndDate, loopEmployeeID)
-                StandardHours = TotalHours - OTHours
-
-                strResult = strResult & "<tr>"
-                strResult = strResult & "<td class=""jobnumber"">" & loopJobNumber & "</td>"
-                strResult = strResult & "<td>" & loopEmployeeFullName & "</td>"
-                strResult = strResult & "<td>" & StandardHours & "</td>"
-                strResult = strResult & "<td>" & OTHours & "</td>"
-                strResult = strResult & "</tr>"
-
-            End While
-
-            strResult = strResult & "</table>"
         Catch ex As Exception
-            LogError("report-timebyjob2-excel.aspx.vb :: GenerateReport", ex.ToString)
-            Response.Write("ERROR:" & ex.ToString & "<br>")
+            LogError("report-timebyjob2-excel.aspx.vb :: GenerateReport", ex.ToString())
+            Response.Write("ERROR: " & Server.HtmlEncode(ex.ToString()) & "<br>")
         Finally
-            connEmployees.Close()
+            If connEmployees.State <> ConnectionState.Closed Then
+                connEmployees.Close()
+            End If
         End Try
 
         Return strResult
 
     End Function
+
+    'Function GenerateReport() As String
+
+    '    Dim sEmployeeQuery As String = Session("AVDeptReportQuery")
+    '    Dim StartDate As String = Session("AVDeptReportStartTime")
+    '    Dim EndDate As String = Session("AVDeptReportEndTime")
+
+    '    Session.Remove("AVDeptReportQuery")
+    '    Session.Remove("AVDeptReportStartTime")
+    '    Session.Remove("AVDeptReportEndTime")
+
+    '    Dim ReturnString As String = ""
+    '    Dim TotalHours As Double, OTHours As Double, StandardHours As Double
+
+    '    Dim strResult As String = "<table class=""listing"" style=""width:250px;"" id=""ListEmployees"">"
+    '    Dim strEmployeeList As String = ""
+    '    strResult = strResult & "<tr><th>Job Number</th><th>Employee</th><th>Standard Time</th><th>Overtime</th></tr>"
+
+    '    Dim sFilter As String = ""
+
+
+    '    Dim connEmployees As New SqlConnection(sConnection)
+    '    Dim cmdEmplyees As New SqlCommand(sEmployeeQuery, connEmployees)
+    '    Dim drEmployees As SqlDataReader
+    '    cmdEmplyees.Parameters.Add(New SqlParameter("@StartTime", StartDate))
+    '    cmdEmplyees.Parameters.Add(New SqlParameter("@EndTime", EndDate))
+
+    '    Try
+    '        connEmployees.Open()
+
+    '        drEmployees = cmdEmplyees.ExecuteReader(Data.CommandBehavior.CloseConnection)
+
+    '        Dim loopJobNumber As String, loopEmployeeID As Integer, loopEmployeeFullName As String = ""
+
+    '        While drEmployees.Read
+
+    '            loopJobNumber = drEmployees.Item("fJobNumber")
+    '            loopEmployeeID = drEmployees.Item("UserPerformed")
+    '            loopEmployeeFullName = drEmployees.Item("EmployeeFullName")
+
+    '            TotalHours = GetTotalHours(loopJobNumber, StartDate, EndDate, loopEmployeeID)
+    '            OTHours = GetOvertimeByJob(loopJobNumber, StartDate, EndDate, loopEmployeeID)
+    '            StandardHours = TotalHours - OTHours
+
+    '            strResult = strResult & "<tr>"
+    '            strResult = strResult & "<td class=""jobnumber"">" & loopJobNumber & "</td>"
+    '            strResult = strResult & "<td>" & loopEmployeeFullName & "</td>"
+    '            strResult = strResult & "<td>" & StandardHours & "</td>"
+    '            strResult = strResult & "<td>" & OTHours & "</td>"
+    '            strResult = strResult & "</tr>"
+
+    '        End While
+
+    '        strResult = strResult & "</table>"
+    '    Catch ex As Exception
+    '        LogError("report-timebyjob2-excel.aspx.vb :: GenerateReport", ex.ToString)
+    '        Response.Write("ERROR:" & ex.ToString & "<br>")
+    '    Finally
+    '        connEmployees.Close()
+    '    End Try
+
+    '    Return strResult
+
+    'End Function
 
     Function GetOvertimeByJob(ByVal JobNumber As String, ByVal StartDate As Date, ByVal EndDate As Date, UserPerformed As Integer) As Double
 
