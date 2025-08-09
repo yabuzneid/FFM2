@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="ax-edittimesheet.aspx.vb">
       <DependentUpon>ax-edittimesheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -363,6 +364,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
+    <None Include="App_WebReferences\gwCompanyAdmin\CompanyAdminService-0.discomap" />
+    <None Include="App_WebReferences\gwCompanyAdmin\CompanyAdminService-0.wsdl" />
+    <None Include="App_WebReferences\gwUserStatus\UserStatusService-0.discomap" />
+    <None Include="App_WebReferences\gwUserStatus\UserStatusService-0.wsdl" />
+    <None Include="App_WebReferences\prodCompanyAdmin\CompanyAdminService-0.0.1.wsdl" />
+    <None Include="App_WebReferences\prodCompanyAdmin\CompanyAdminService-0.discomap" />
+    <None Include="App_WebReferences\prodUserStatus\UserStatusService-0.0.1.wsdl" />
+    <None Include="App_WebReferences\prodUserStatus\UserStatusService-0.discomap" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

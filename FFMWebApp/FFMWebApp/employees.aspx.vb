@@ -134,8 +134,8 @@ Partial Class employees
 
             Dim Username As String, Email As String, Password As String = "", FirstName As String, Lastname As String, Initials As String, CellPhone As String, PerDiem As Double, PayrollID As String, OfficeID As Integer, Type As String, TravelMultiplierCompany As Double = 0, TravelMultiplierPersonal As Double = 0, PartTime As Integer = 0, ReadOnlyAccess As Integer = 0
             Dim Active As Integer = 0, Worker As Integer = 0, PM As Integer = 0, Clerk As Integer = 0, sPerDiem As String, EmployeeGroup As String, LimitedView As Integer = 0, Department As String = ""
-
             EmployeeID = Request.QueryString("id")
+
 
             Username = TXT_Username.Text
             Password = TXT_password.Text
@@ -183,7 +183,11 @@ Partial Class employees
             Dim connEmployee As New SqlConnection(sConnection)
             Dim cmdEmployee As New SqlCommand(qEmployee, connEmployee)
 
-            cmdEmployee.Parameters.Add(New SqlParameter("@Email", Email))
+            If String.IsNullOrWhiteSpace(Email) Then
+                cmdEmployee.Parameters.Add(New SqlParameter("@Email", DBNull.Value))
+            Else
+                cmdEmployee.Parameters.Add(New SqlParameter("@Email", Email))
+            End If
             cmdEmployee.Parameters.Add(New SqlParameter("@FirstName", FirstName))
             cmdEmployee.Parameters.Add(New SqlParameter("@LastName", Lastname))
             cmdEmployee.Parameters.Add(New SqlParameter("@Initials", Initials))
