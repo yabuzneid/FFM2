@@ -63,9 +63,9 @@ Public Class JobReport
                 ApprovedBy = GetApprover(EmployeeID, StartDate, EndDate, JobNumber)
 
 
-                TotalTime = drJobTime.Item("TimeSpent")
-                TotalTime = drJobTime.Item("TimeSpent")
-                TotalTime = drJobTime.Item("TimeSpent")
+                TotalTime = SafeString(drJobTime.Item("TimeSpent"))
+                TotalTime = SafeString(drJobTime.Item("TimeSpent"))
+                TotalTime = SafeString(drJobTime.Item("TimeSpent"))
 
 
                 ReturnString = ReturnString & "<tr>"
@@ -130,7 +130,7 @@ Public Class JobReport
 
             While drEmployees.Read
 
-                JobNumber = drEmployees.Item("fJobNumber")
+                JobNumber = SafeString(drEmployees.Item("fJobNumber"))
                 'TotalJobTime = drEmployees.Item("TotalTime") / 60
 
                 ReturnString = ReturnString & "<option value=""" & JobNumber & """"
@@ -176,7 +176,7 @@ Public Class JobReport
 
             While drOverTime.Read()
 
-                Overtime = drOverTime.Item("SumOvertime")
+                Overtime = SafeString(drOverTime.Item("SumOvertime"))
 
             End While
 
@@ -212,9 +212,9 @@ Public Class JobReport
             While drJobTime.Read()
 
                 If returnString = "" Then
-                    returnString = drJobTime.Item("Initials")
+                    returnString = SafeString(drJobTime.Item("Initials"))
                 Else
-                    returnString = returnString & ", " & drJobTime.Item("Initials")
+                    returnString = returnString & ", " & SafeString(drJobTime.Item("Initials"))
                 End If
 
             End While

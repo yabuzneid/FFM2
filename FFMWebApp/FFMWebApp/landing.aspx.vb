@@ -46,9 +46,9 @@ Partial Class landing
 
             While drPM.Read()
 
-                FirstName = drPM.Item("FirstName")
-                LastName = drPM.Item("LastName")
-                Initials = drPM.Item("Initials")
+                FirstName = SafeString(drPM.Item("FirstName"))
+                LastName = SafeString(drPM.Item("LastName"))
+                Initials = SafeString(drPM.Item("Initials"))
 
                 strResult.Append("<tr><td>" & LastName & ", " & FirstName & "</td>")
                 strResult.Append(GetPMTime(StartDate, EndDate, Initials))
@@ -93,7 +93,7 @@ Partial Class landing
 
             If drStartTime.HasRows = True Then
                 While drStartTime.Read
-                    EarliestRecord = drStartTime.Item("EarliestStartTime")
+                    EarliestRecord = SafeString(drStartTime.Item("EarliestStartTime"))
                 End While
             Else
                 EarliestRecord = "11/1/2009"
@@ -167,9 +167,9 @@ Partial Class landing
 
             While drTimeQuery.Read()
 
-                StartTime = drTimeQuery.Item("StartTime")
-                EndTime = drTimeQuery.Item("EndTime")
-                Approved = drTimeQuery.Item("Approved")
+                StartTime = SafeString(drTimeQuery.Item("StartTime"))
+                EndTime = SafeString(drTimeQuery.Item("EndTime"))
+                Approved = SafeString(drTimeQuery.Item("Approved"))
 
                 TimeSpan = Math.Round(DateDiff(DateInterval.Minute, StartTime, EndTime) / 60, 2)
                 TotalTime = TotalTime + TimeSpan
@@ -211,9 +211,9 @@ Partial Class landing
 
             While drTimeQuery.Read()
 
-                StartTime = drTimeQuery.Item("StartTime")
-                EndTime = drTimeQuery.Item("EndTime")
-                Approved = drTimeQuery.Item("Approved")
+                StartTime = SafeString(drTimeQuery.Item("StartTime"))
+                EndTime = SafeString(drTimeQuery.Item("EndTime"))
+                Approved = SafeString(drTimeQuery.Item("Approved"))
 
                 TimeSpan = Math.Round(DateDiff(DateInterval.Minute, StartTime, EndTime) / 60, 2)
                 TotalTime = TotalTime + TimeSpan
@@ -352,8 +352,8 @@ Partial Class landing
 
             While drOffices.Read()
 
-                OfficeID = drOffices.Item("OfficeID")
-                OfficeName = drOffices.Item("OfficeName")
+                OfficeID = SafeString(drOffices.Item("OfficeID"))
+                OfficeName = SafeString(drOffices.Item("OfficeName"))
 
 
                 Dim qTotalOfficeTime As String = "select IsNull(Sum(DateDiff(mi,starttime,endtime)),0) as TotalTime from tTimeEntry, tShifts, tEmployees where  tShifts.ShiftID = tTimeEntry.ShiftID and tShifts.UserPerformed = tEmployees.EmployeeID and OfficeID = @OfficeID and not fInjured is null and CAST(FLOOR(CAST(StartTime AS FLOAT))AS DATETIME)>=@StartDate and CAST(FLOOR(CAST(StartTime AS FLOAT))AS DATETIME)<=@EndDate"
@@ -372,7 +372,7 @@ Partial Class landing
 
                     While drOfficeTotal.Read()
 
-                        TotalOfficeTime = drOfficeTotal.Item("TotalTime") / 60
+                        TotalOfficeTime = SafeString(drOfficeTotal.Item("TotalTime")) / 60
 
 
                     End While
@@ -418,7 +418,7 @@ Partial Class landing
             connAdjustment.Open()
             drAdjustment = cmdAdjustment.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drAdjustment.Read
-                Overtime = drAdjustment.Item("Overtime")
+                Overtime = SafeString(SafeString(drAdjustment.Item("Overtime")))
             End While
         Catch ex As Exception
             Response.Write("ERROR: " & ex.Message & "<br>")
@@ -457,7 +457,7 @@ Partial Class landing
 
             While drUnprocessed.Read
 
-                returnString = "<span class=""alertlabelsmall"">There are " & drUnprocessed.Item("UnprocCount") & " unprocessed events older than 24 hours. <a href=""Openshifts.aspx"">Click here to see them</a>.</span>"
+                returnString = "<span class=""alertlabelsmall"">There are " & SafeString(drUnprocessed.Item("UnprocCount")) & " unprocessed events older than 24 hours. <a href=""Openshifts.aspx"">Click here to see them</a>.</span>"
 
             End While
 

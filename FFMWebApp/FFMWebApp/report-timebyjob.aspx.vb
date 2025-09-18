@@ -55,7 +55,7 @@ Partial Class report_timebyjob
 
             While drEmployees.Read
 
-                JobNumber = drEmployees.Item("fJobNumber")
+                JobNumber = SafeString(drEmployees.Item("fJobNumber"))
 
                 TotalHours = GetTotalHours(JobNumber, StartDate, EndDate, UserPerformed)
                 OTHours = GetOvertimeByJob(JobNumber, StartDate, EndDate, UserPerformed)
@@ -110,7 +110,7 @@ Partial Class report_timebyjob
             drTimeQuery = cmdTimeQuery.ExecuteReader(Data.CommandBehavior.CloseConnection)
 
             While drTimeQuery.Read()
-                TotalTime = drTimeQuery.Item("TotalOT")
+                TotalTime = SafeString(drTimeQuery.Item("TotalOT"))
             End While
 
             returnstring = TotalTime
@@ -155,8 +155,8 @@ Partial Class report_timebyjob
 
             While drTimeQuery.Read()
 
-                StartTime = drTimeQuery.Item("StartTime")
-                EndTime = drTimeQuery.Item("EndTime")
+                StartTime = SafeString(drTimeQuery.Item("StartTime"))
+                EndTime = SafeString(drTimeQuery.Item("EndTime"))
 
                 TimeSpan = Math.Round(DateDiff(DateInterval.Minute, StartTime, EndTime) / 60, 2)
                 TotalTime = TotalTime + TimeSpan

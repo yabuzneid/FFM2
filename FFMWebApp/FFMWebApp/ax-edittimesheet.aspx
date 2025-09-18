@@ -1,2 +1,3 @@
-﻿<%@ Page Language="VB" AutoEventWireup="true" CodeFile="ax-edittimesheet.aspx.vb" Inherits="ax_edittimesheet" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="ax-edittimesheet.aspx.vb" Inherits="FFMWebApp.ax_edittimesheet" %>
 
+ 

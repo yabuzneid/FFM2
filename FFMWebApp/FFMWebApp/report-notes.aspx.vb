@@ -67,14 +67,14 @@ Partial Class report_notes
 
                 'JobNumber = drEmployees.Item("fJobNumber")
 
-                EmployeeID = drEmployees.Item("EmployeeID")
-                FirstName = drEmployees.Item("FirstName")
-                LastName = drEmployees.Item("LastName")
-                Comments = drEmployees.Item("fComments")
-                startTime = drEmployees.Item("startTime")
-                TimeSpent = drEmployees.Item("TimeSpent")
-                PM = drEmployees.Item("fPM")
-                Approved = drEmployees.Item("Approved")
+                EmployeeID = SafeString(drEmployees.Item("EmployeeID"))
+                FirstName = SafeString(drEmployees.Item("FirstName"))
+                LastName = SafeString(drEmployees.Item("LastName"))
+                Comments = SafeString(drEmployees.Item("fComments"))
+                startTime = SafeString(drEmployees.Item("startTime"))
+                TimeSpent = SafeString(drEmployees.Item("TimeSpent"))
+                PM = SafeString(drEmployees.Item("fPM"))
+                Approved = SafeString(drEmployees.Item("Approved"))
 
                 If Not EmployeeID = EmployeeIDLoop Then
                     strResult = strResult & "<tr><td colspan=5 style=""background-color:#d2cedf;""><a href=""worker.aspx?startdate=" & StartDate & "&enddate=" & EndDate & "&id=" & EmployeeID & """><strong>" & LastName & ", " & FirstName & "</strong></a></td></tr>"

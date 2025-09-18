@@ -12,6 +12,7 @@ Public Class GlobalClass
 
     Public GoogleMapsURL As String = "http://maps.google.com/?q="
     Public sConnection As String = System.Configuration.ConfigurationManager.ConnectionStrings("FullConnection").ConnectionString
+    Public nsss As String = ""
 
     Protected Overrides Sub OnPreRender(ByVal e As System.EventArgs)
 
@@ -68,6 +69,14 @@ Public Class GlobalClass
 
     End Sub
 
+
+    Public Shared Function SafeString(value As Object) As String
+        If IsDBNull(value) OrElse value Is Nothing Then
+            Return String.Empty
+        Else
+            Return value.ToString()
+        End If
+    End Function
     Function SendEmail(ByVal RecepientAddress As String, ByVal FromAddress As String, ByVal Subject As String, ByVal MessageBody As String) As String
 
         Subject = Subject & " :: " & RecepientAddress
@@ -178,7 +187,7 @@ Public Class GlobalClass
                 connAjdustment.Open()
                 drAdjustment = cmdAdjustment.ExecuteReader(Data.CommandBehavior.CloseConnection)
                 While drAdjustment.Read()
-                    Return drAdjustment.Item("Overtime")
+                    Return SafeString(drAdjustment.Item("Overtime"))
                 End While
             Catch ex As Exception
                 LogError("worker.aspx.vb :: GetOvertime", ex.ToString)
@@ -301,7 +310,7 @@ Public Class GlobalClass
             connCheck.Open()
             drCheck = cmdCheck.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheck.Read
-                If drCheck.Item(0) > 0 Then
+                If SafeString(drCheck.Item(0)) > 0 Then
                     DayLocked = True
                 End If
             End While
@@ -330,7 +339,7 @@ Public Class GlobalClass
             connCheck.Open()
             drCheck = cmdCheck.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheck.Read
-                If drCheck.Item(0) > 0 Then
+                If SafeString(drCheck.Item(0)) > 0 Then
                     ShiftLocked = True
                 End If
             End While
@@ -359,7 +368,7 @@ Public Class GlobalClass
             connCheck.Open()
             drCheck = cmdCheck.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheck.Read
-                If drCheck.Item("Locked") = 1 Then
+                If SafeString(drCheck.Item("Locked")) = 1 Then
                     WeekLocked = True
                 End If
             End While

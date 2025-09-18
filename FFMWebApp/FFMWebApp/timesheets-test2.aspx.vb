@@ -108,7 +108,7 @@ Partial Class timesheets_test2
 
             If drStartTime.HasRows = True Then
                 While drStartTime.Read
-                    EarliestRecord = drStartTime.Item("EarliestStartTime")
+                    EarliestRecord = SafeString(drStartTime.Item("EarliestStartTime"))
                 End While
             Else
                 EarliestRecord = "11/1/2009"
@@ -489,7 +489,7 @@ Partial Class timesheets_test2
                 Dim OvertimeRows() As DataRow = dtOvertime.Select("EmployeeID=" & worker)
 
                 If OvertimeRows.Length > 0 Then
-                    OvertimeTotal = OvertimeRows(0).Item("TotalOvertime")
+                    OvertimeTotal = SafeString(OvertimeRows(0).Item("TotalOvertime"))
                 End If
 
 
@@ -498,12 +498,12 @@ Partial Class timesheets_test2
 
                     For Each row As DataRow In rows
 
-                        StartTime = row.Item("StartTime")
-                        EndTime = row.Item("EndTime")
-                        fPM = row.Item("fPM")
-                        Approved = row.Item("Approved")
-                        fJobNumber = row.Item("fJobNumber")
-                        fTravelTime = row.Item("fTravelTime")
+                        StartTime = SafeString(row.Item("StartTime"))
+                        EndTime = SafeString(row.Item("EndTime"))
+                        fPM = SafeString(row.Item("fPM"))
+                        Approved = SafeString(row.Item("Approved"))
+                        fJobNumber = SafeString(row.Item("fJobNumber"))
+                        fTravelTime = SafeString(row.Item("fTravelTime"))
                         fPM = CheckForPM(fPM)
 
                         TimeSpan = Math.Round(DateDiff(DateInterval.Minute, StartTime, EndTime) / 60, 2)
@@ -629,12 +629,12 @@ Partial Class timesheets_test2
 
             While drTimeQuery.Read()
 
-                StartTime = drTimeQuery.Item("StartTime")
-                EndTime = drTimeQuery.Item("EndTime")
-                fPM = drTimeQuery.Item("fPM")
-                Approved = drTimeQuery.Item("Approved")
-                fJobNumber = drTimeQuery.Item("fJobNumber")
-                fTravelTime = drTimeQuery.Item("fTravelTime")
+                StartTime = SafeString(drTimeQuery.Item("StartTime"))
+                EndTime = SafeString(drTimeQuery.Item("EndTime"))
+                fPM = SafeString(drTimeQuery.Item("fPM"))
+                Approved = SafeString(drTimeQuery.Item("Approved"))
+                fJobNumber = SafeString(drTimeQuery.Item("fJobNumber"))
+                fTravelTime = SafeString(drTimeQuery.Item("fTravelTime"))
 
                 fPM = CheckForPM(fPM)
 
@@ -738,7 +738,7 @@ Partial Class timesheets_test2
             drTimeQuery = cmdTimeQuery.ExecuteReader(Data.CommandBehavior.CloseConnection)
 
             While drTimeQuery.Read()
-                OvertimeTotal = drTimeQuery.Item("TotalOvertime")
+                OvertimeTotal = SafeString(drTimeQuery.Item("TotalOvertime"))
             End While
 
         Catch ex As Exception
@@ -775,9 +775,9 @@ Partial Class timesheets_test2
 
             While drNoTime.Read()
                 If returnstring = "" Then
-                    returnstring = drNoTime.Item("FirstName") & " " & drNoTime.Item("LastName")
+                    returnstring = SafeString(drNoTime.Item("FirstName")) & " " & SafeString(drNoTime.Item("LastName"))
                 Else
-                    returnstring = returnstring & ", " & drNoTime.Item("FirstName") & " " & drNoTime.Item("LastName")
+                    returnstring = returnstring & ", " & SafeString(drNoTime.Item("FirstName")) & " " & SafeString(drNoTime.Item("LastName"))
 
                 End If
             End While
@@ -816,8 +816,8 @@ Partial Class timesheets_test2
             drEmployees = cmdEmplyees.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drEmployees.Read
 
-                JobNumber = drEmployees.Item("fJobNumber")
-                TotalJobTime = drEmployees.Item("TotalTime") / 60
+                JobNumber = SafeString(drEmployees.Item("fJobNumber"))
+                TotalJobTime = SafeString(drEmployees.Item("TotalTime")) / 60
 
                 strResult = strResult & "<tr><td><a href=""jobreport.aspx?startdate=" & StartDate & "&enddate=" & enddate & "&jobnumber=" & JobNumber & """>" & JobNumber & "</a></td><td>" & TotalJobTime & "</td></tr>"
 
@@ -859,8 +859,8 @@ Partial Class timesheets_test2
 
             While drTimeQuery.Read()
 
-                StartTime = drTimeQuery.Item("StartTime")
-                EndTime = drTimeQuery.Item("EndTime")
+                StartTime = SafeString(drTimeQuery.Item("StartTime"))
+                EndTime = SafeString(drTimeQuery.Item("EndTime"))
 
                 TimeSpan = Math.Round(DateDiff(DateInterval.Minute, StartTime, EndTime) / 60, 2)
                 TotalTime = TotalTime + TimeSpan
@@ -894,7 +894,7 @@ Partial Class timesheets_test2
             connLastSync.Open()
             drLastSync = cmdLastSync.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drLastSync.Read
-                LastSyncTime = drLastSync.Item("RequestTime")
+                LastSyncTime = SafeString(drLastSync.Item("RequestTime"))
             End While
         Catch ex As Exception
             Response.Write("ERROR: " & ex.ToString)
@@ -906,8 +906,8 @@ Partial Class timesheets_test2
         If DateAdd(DateInterval.Hour, 24, LastSyncTime) < Now() Then Datecolor = "#f00"
 
         Dim ReturnString As String = ""
-        ReturnString = ReturnString & "Last FFM Update:<br/> <strong style=""color:" & Datecolor & """>" & LastSyncTime & "</strong><br>"
-        ReturnString = ReturnString & "<input type=""button"" Onclick=""javascript:window.open('LoadData.aspx?action=sync','Spreadsheet'); "" value=""Sync Now"" />"
+        'ReturnString = ReturnString & "Last FFM Update:<br/> <strong style=""color:" & Datecolor & """>" & LastSyncTime & "</strong><br>"
+        'ReturnString = ReturnString & "<input type=""button"" Onclick=""javascript:window.open('LoadData.aspx?action=sync','Spreadsheet'); "" value=""Sync Now"" />"
         Return ReturnString
 
     End Function
@@ -966,9 +966,9 @@ Partial Class timesheets_test2
             While drCheckPM.Read
 
                 If PMList = "" Then
-                    PMList = drCheckPM.Item(0)
+                    PMList = SafeString(drCheckPM.Item(0))
                 Else
-                    PMList = PMList & "," & UCase(drCheckPM.Item(0))
+                    PMList = PMList & "," & UCase(SafeString(drCheckPM.Item(0)))
                 End If
 
             End While
@@ -1002,7 +1002,7 @@ Partial Class timesheets_test2
             connCheckUnbill.Open()
             drCheckUnbill = CmdCheckUnbill.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheckUnbill.Read
-                If drCheckUnbill.Item("ShiftCount") > 0 Then
+                If SafeString(drCheckUnbill.Item("ShiftCount")) > 0 Then
                     HasUnbillableTime = True
                 End If
             End While
@@ -1034,7 +1034,7 @@ Partial Class timesheets_test2
             connCheckUnbill.Open()
             drCheckUnbill = CmdCheckUnbill.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheckUnbill.Read
-                If drCheckUnbill.Item("ShiftCount") > 0 Then
+                If SafeString(drCheckUnbill.Item("ShiftCount")) > 0 Then
                     HasUnbillableTime = True
                 End If
             End While
@@ -1066,7 +1066,7 @@ Partial Class timesheets_test2
             connCheckUnbill.Open()
             drCheckUnbill = CmdCheckUnbill.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheckUnbill.Read
-                If drCheckUnbill.Item("ShiftCount") > 0 Then
+                If SafeString(drCheckUnbill.Item("ShiftCount")) > 0 Then
                     HasUnbillableTime = True
                 End If
             End While
@@ -1098,7 +1098,7 @@ Partial Class timesheets_test2
             connCheckUnbill.Open()
             drCheckUnbill = CmdCheckUnbill.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheckUnbill.Read
-                If drCheckUnbill.Item("ShiftCount") > 0 Then
+                If SafeString(drCheckUnbill.Item("ShiftCount")) > 0 Then
                     HasUnbillableTime = True
                 End If
             End While
@@ -1144,7 +1144,7 @@ Partial Class timesheets_test2
 
             While drEmployees.Read
 
-                EmployeeCount = drEmployees.Item("EmployeeCount")
+                EmployeeCount = SafeString(drEmployees.Item("EmployeeCount"))
 
             End While
 

@@ -207,19 +207,19 @@ Partial Class payroll
 
             For Each drEmployee As DataRow In dtEmployees.Rows
 
-                FirstName = drEmployee.Item("FirstName")
-                LastName = drEmployee.Item("LastName")
-                PayrollID = drEmployee.Item("PayrollID")
-                EmployeeID = drEmployee.Item("EmployeeID")
-                multiplierPerDiem = drEmployee.Item("PerDiem")
+                FirstName = SafeString(drEmployee.Item("FirstName"))
+                LastName = SafeString(drEmployee.Item("LastName"))
+                PayrollID = SafeString(drEmployee.Item("PayrollID"))
+                EmployeeID = SafeString(drEmployee.Item("EmployeeID"))
+                multiplierPerDiem = SafeString(drEmployee.Item("PerDiem"))
 
                 Dim filteredJobs() As DataRow = dtJobs.Select("UserPerformed=" & EmployeeID)
 
                 For Each drJob As DataRow In filteredJobs
 
-                    fJobNumber = drJob.Item("fJobNumber")
-                    fPW = drJob.Item("fPW")
-                    fState = drJob.Item("fState")
+                    fJobNumber = SafeString(drJob.Item("fJobNumber"))
+                    fPW = SafeString(drJob.Item("fPW"))
+                    fState = SafeString(drJob.Item("fState"))
 
                     strResult.Append("<tr><td class=""name"">" & LastName & ", " & FirstName & "</td><td>" & PayrollID & "</td><td>" & fJobNumber.Replace("-", "") & "</td><td>" & fPW & "</td><td class=""divider"">" & fState.ToUpper & "</td>")
 
@@ -234,8 +234,8 @@ Partial Class payroll
                     Dim filteredBonuses() As DataRow = dtBonus.Select("EmployeeID=" & EmployeeID & " and StartDate = '" & StartDate & "' and JobNumber='" & fJobNumber & "' and PW='" & fPW & "' and State='" & fState & "'")
 
                     For Each drBonus As DataRow In filteredBonuses
-                        Bonus = drBonus.Item("Bonus")
-                        Notes = drBonus.Item("Notes")
+                        Bonus = SafeString(drBonus.Item("Bonus"))
+                        Notes = SafeString(drBonus.Item("Notes"))
                     Next
 
 
@@ -302,10 +302,10 @@ Partial Class payroll
             Dim filteredAdjustments() As DataRow = dtAdjustments.Select("EmployeeID=" & EmployeeID & " and DateAdjusted = '" & DateToRun.ToString("MM-dd-yyyy") & "' and JobNumber='" & JobNumber & "' and PW='" & PW & "' and State='" & state & "'")
 
             For Each drAdjustment As DataRow In filteredAdjustments
-                adjCompany = drAdjustment.Item("Company")
-                adjPersonal = drAdjustment.Item("Personal")
-                adjStandardTime = drAdjustment.Item("StandardTime")
-                adjOvertime = drAdjustment.Item("Overtime")
+                adjCompany = SafeString(drAdjustment.Item("Company"))
+                adjPersonal = SafeString(drAdjustment.Item("Personal"))
+                adjStandardTime = SafeString(drAdjustment.Item("StandardTime"))
+                adjOvertime = SafeString(drAdjustment.Item("Overtime"))
             Next
 
             '----- LOOP THROUGH TIME ENTRIES FOR THAT DAY+PROJECT+WORKER(+State+PW)
@@ -314,11 +314,11 @@ Partial Class payroll
             For Each drDay As DataRow In filteredTimeEntries
 
 
-                StartTime = drDay.Item("StartTime")
-                Endtime = drDay.Item("EndTime")
+                StartTime = SafeString(drDay.Item("StartTime"))
+                Endtime = SafeString(drDay.Item("EndTime"))
                 'Overtime = drDay.Item("Overtime")
-                Travel = drDay.Item("fTravelTime")
-                PerDiem = drDay.Item("fPerDiem")
+                Travel = SafeString(drDay.Item("fTravelTime"))
+                PerDiem = SafeString(drDay.Item("fPerDiem"))
 
                 Timedifference = DateDiff(DateInterval.Minute, StartTime, Endtime) / 60
 
@@ -424,9 +424,9 @@ Partial Class payroll
 
         For Each drEmployee As DataRow In dtEmployees.Rows
             If PMList = "" Then
-                PMList = drEmployee.Item("EmployeeID")
+                PMList = SafeString(drEmployee.Item("EmployeeID"))
             Else
-                PMList = PMList & "," & UCase(drEmployee.Item("EmployeeID"))
+                PMList = PMList & "," & UCase(SafeString(drEmployee.Item("EmployeeID")))
             End If
         Next
 

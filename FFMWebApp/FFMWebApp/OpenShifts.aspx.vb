@@ -50,6 +50,7 @@ Partial Class OpenShifts
         Dim ReturnString As String = "<table class=""listing"">"
         ReturnString = ReturnString & "<tr><th>Time</th><th>Employee</th><th>Type&nbsp;of&nbsp;Event</th><th>Location</th><th>Job Number</th><th>Project</th><th>PM</th><th>Ignore Message</th></tr>"
         Dim EmployeeName As String = "", ActionEvent As String = "", ActionTime As DateTime, Address As String = "", JobNumber As String = "", ProjectName As String = "", PM As String = "", ActionID As Integer
+
         Dim sUnprocessedQuery As String = "select ActionID, LastName + ', ' + FirstName as EmployeeName, ActionEvent, ActionTime, Address, fJobNumber, fProjectName, fPM from tActions, tEmployees where tEmployees.CellPhone = tActions.UserPerformed And Processed = 0 And ActionTime < DateAdd(dd, -1, GETDATE()) and (ActionEvent = 'Start Shift' or ActionEvent = 'Start Break' or ActionEvent = 'End Break' or ActionEvent = 'End Shift') and not ActionID in (select ActionID from tIgnoreUnprocessed) order by ActionTime desc"
         Dim connUnprocessed As New SqlConnection(sConnection)
         Dim cmdUnprocessed As New SqlCommand(sUnprocessedQuery, connUnprocessed)
@@ -60,14 +61,14 @@ Partial Class OpenShifts
 
             While drUnprocessed.Read
 
-                EmployeeName = SafeGetStringOrNull(drUnprocessed, "EmployeeName")
-                ActionEvent = SafeGetStringOrNull(drUnprocessed, "ActionEvent")
-                ActionTime = SafeGetDateTimeOrNull(drUnprocessed, "ActionTime")
-                Address = SafeGetStringOrNull(drUnprocessed, "Address")
-                JobNumber = SafeGetStringOrNull(drUnprocessed, "fJobNumber")
-                ProjectName = SafeGetStringOrNull(drUnprocessed, "fProjectName")
-                PM = SafeGetStringOrNull(drUnprocessed, "fPM")
-                ActionID = SafeGetIntOrNull(drUnprocessed, "ActionID")
+                EmployeeName = SafeString(drUnprocessed.Item("EmployeeName"))
+                ActionEvent = SafeString(drUnprocessed.Item("ActionEvent"))
+                ActionTime = SafeString(drUnprocessed.Item("ActionTime"))
+                Address = SafeString(drUnprocessed.Item("Address"))
+                JobNumber = SafeString(drUnprocessed.Item("fJobNumber"))
+                ProjectName = SafeString(drUnprocessed.Item("fProjectName"))
+                PM = SafeString(drUnprocessed.Item("fPM"))
+                ActionID = SafeString(drUnprocessed.Item("ActionID"))
 
                 ReturnString = ReturnString & "<tr><td>" & ActionTime.ToString & "</td><td>" & EmployeeName & "</td><td>" & ActionEvent & "</td><td>" & Address & "</td><td>" & JobNumber & "</td><td>" & ProjectName & "</td><td>" & UCase(PM) & "</td>"
                 ReturnString = ReturnString & "<td>"
@@ -89,28 +90,6 @@ Partial Class OpenShifts
         Return ReturnString
 
     End Function
-    Private Function SafeGetStringOrNull(dr As SqlDataReader, columnName As String) As String
-        If dr.IsDBNull(dr.GetOrdinal(columnName)) Then
-            Return Nothing
-        Else
-            Return dr(columnName).ToString()
-        End If
-    End Function
 
-    Private Function SafeGetIntOrNull(dr As SqlDataReader, columnName As String) As Integer?
-        If dr.IsDBNull(dr.GetOrdinal(columnName)) Then
-            Return Nothing
-        Else
-            Return Convert.ToInt32(dr(columnName))
-        End If
-    End Function
-
-    Private Function SafeGetDateTimeOrNull(dr As SqlDataReader, columnName As String) As DateTime?
-        If dr.IsDBNull(dr.GetOrdinal(columnName)) Then
-            Return Nothing
-        Else
-            Return Convert.ToDateTime(dr(columnName))
-        End If
-    End Function
 
 End Class

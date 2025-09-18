@@ -85,12 +85,12 @@ Partial Class generatecsv
 
             While drEmployee.Read
 
-                EmployeeID = drEmployee.Item("EmployeeID")
-                JobNumber = drEmployee.Item("fJobNumber")
-                State = drEmployee.Item("fState")
-                DateOfWork = drEmployee.Item("DateOfWork")
-                PayrollID = drEmployee.Item("PayrollID")
-                EmployeeName = drEmployee.Item("EmployeeName")
+                EmployeeID = SafeString(drEmployee.Item("EmployeeID"))
+                JobNumber = SafeString(drEmployee.Item("fJobNumber"))
+                State = SafeString(drEmployee.Item("fState"))
+                DateOfWork = SafeString(drEmployee.Item("DateOfWork"))
+                PayrollID = SafeString(drEmployee.Item("PayrollID"))
+                EmployeeName = SafeString(drEmployee.Item("EmployeeName"))
 
                 ReturnString = ReturnString & GetTimeForRecord(EmployeeID, JobNumber, State, DateOfWork, PayrollID, EmployeeName)
             End While
@@ -129,13 +129,13 @@ Partial Class generatecsv
 
             While drDay.Read
 
-                StartTime = drDay.Item("StartTime")
-                Endtime = drDay.Item("EndTime")
-                Travel = drDay.Item("fTravelTime")
-                PerDiem = drDay.Item("fPerDiem")
-                PW = drDay.Item("fPW")
-                Comments = drDay.Item("fComments")
-                ShiftID = drDay.Item("ShiftID")
+                StartTime = SafeString(drDay.Item("StartTime"))
+                Endtime = SafeString(drDay.Item("EndTime"))
+                Travel = SafeString(drDay.Item("fTravelTime"))
+                PerDiem = SafeString(drDay.Item("fPerDiem"))
+                PW = SafeString(drDay.Item("fPW"))
+                Comments = SafeString(drDay.Item("fComments"))
+                ShiftID = SafeString(drDay.Item("ShiftID"))
 
                 Timedifference = DateDiff(DateInterval.Minute, StartTime, Endtime) / 60
 
@@ -179,10 +179,10 @@ Partial Class generatecsv
                 drAdjustment = cmdAdjustment.ExecuteReader(Data.CommandBehavior.CloseConnection)
                 While drAdjustment.Read
 
-                    adjCompany = drAdjustment.Item("Company")
-                    adjPersonal = drAdjustment.Item("Personal")
-                    adjStandardTime = drAdjustment.Item("StandardTime")
-                    adjOvertime = drAdjustment.Item("Overtime")
+                    adjCompany = SafeString(drAdjustment.Item("Company"))
+                    adjPersonal = SafeString(drAdjustment.Item("Personal"))
+                    adjStandardTime = SafeString(drAdjustment.Item("StandardTime"))
+                    adjOvertime = SafeString(drAdjustment.Item("Overtime"))
 
                 End While
             Catch ex As Exception

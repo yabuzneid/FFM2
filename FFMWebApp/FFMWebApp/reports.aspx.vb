@@ -35,7 +35,7 @@ Partial Class reports
             drJobNumberQuery = cmdJobNumberQuery.ExecuteReader(Data.CommandBehavior.CloseConnection)
 
             While drJobNumberQuery.Read()
-                returnstring = returnstring & "<option>" & drJobNumberQuery.Item("fJobNumber") & "</option>"
+                returnstring = returnstring & "<option>" & SafeString(drJobNumberQuery.Item("fJobNumber")) & "</option>"
             End While
 
         Catch ex As Exception

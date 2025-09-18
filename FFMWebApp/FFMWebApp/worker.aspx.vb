@@ -38,10 +38,10 @@ Partial Class worker
 
             While drWorker.Read
 
-                FirstName = drWorker.Item("FirstName")
-                LastName = drWorker.Item("LastName")
+                FirstName = SafeString(drWorker.Item("FirstName"))
+                LastName = SafeString(drWorker.Item("LastName"))
                 'Username = drWorker.Item("Username")
-                PayrollID = drWorker.Item("PayrollID")
+                PayrollID = SafeString(drWorker.Item("PayrollID"))
 
             End While
 
@@ -84,22 +84,22 @@ Partial Class worker
 
             While drTimeSheets.Read
 
-                TimeEntryID = drTimeSheets.Item("TimeEntryID")
-                fPM = drTimeSheets.Item("fPM")
-                fJobNumber = drTimeSheets.Item("fJobNumber")
-                fState = drTimeSheets.Item("fState")
-                StartTime = drTimeSheets.Item("StartTime")
-                EndTime = drTimeSheets.Item("EndTime")
-                fTravelTime = drTimeSheets.Item("fTravelTime")
-                fPerDiem = drTimeSheets.Item("fPerDiem")
-                Approved = drTimeSheets.Item("Approved")
-                StartAddress = drTimeSheets.Item("StartAddress")
-                EndAddress = drTimeSheets.Item("EndAddress")
-                StartLatitude = drTimeSheets.Item("StartLatitude")
-                StartLongitude = drTimeSheets.Item("StartLongitude")
-                EndLatitude = drTimeSheets.Item("EndLatitude")
-                EndLongitude = drTimeSheets.Item("EndLongitude")
-                ApprovedInitials = drTimeSheets.Item("Initials")
+                TimeEntryID = SafeString(drTimeSheets.Item("TimeEntryID"))
+                fPM = SafeString(drTimeSheets.Item("fPM"))
+                fJobNumber = SafeString(drTimeSheets.Item("fJobNumber"))
+                fState = SafeString(drTimeSheets.Item("fState"))
+                StartTime = SafeString(drTimeSheets.Item("StartTime"))
+                EndTime = SafeString(drTimeSheets.Item("EndTime"))
+                fTravelTime = SafeString(drTimeSheets.Item("fTravelTime"))
+                fPerDiem = SafeString(drTimeSheets.Item("fPerDiem"))
+                Approved = SafeString(drTimeSheets.Item("Approved"))
+                StartAddress = SafeString(drTimeSheets.Item("StartAddress"))
+                EndAddress = SafeString(drTimeSheets.Item("EndAddress"))
+                StartLatitude = SafeString(drTimeSheets.Item("StartLatitude"))
+                StartLongitude = SafeString(drTimeSheets.Item("StartLongitude"))
+                EndLatitude = SafeString(drTimeSheets.Item("EndLatitude"))
+                EndLongitude = SafeString(drTimeSheets.Item("EndLongitude"))
+                ApprovedInitials = SafeString(drTimeSheets.Item("Initials"))
 
 
                 Dim sStartTime As String, sEndTime As String
@@ -223,10 +223,10 @@ Partial Class worker
 
             While drWorker.Read
 
-                FirstName = drWorker.Item("FirstName")
-                LastName = drWorker.Item("LastName")
-                Username = drWorker.Item("Username")
-                PayrollID = drWorker.Item("PayrollID")
+                FirstName = SafeString(drWorker.Item("FirstName"))
+                LastName = SafeString(drWorker.Item("LastName"))
+                Username = SafeString(drWorker.Item("Username"))
+                PayrollID = SafeString(drWorker.Item("PayrollID"))
 
             End While
 
@@ -274,32 +274,32 @@ Partial Class worker
 
             While drTimeSheets.Read
 
-                TimeEntryID = drTimeSheets.Item("TimeEntryID")
-                fPM = drTimeSheets.Item("fPM")
-                fJobNumber = drTimeSheets.Item("fJobNumber")
-                fState = drTimeSheets.Item("fState")
-                StartTime = drTimeSheets.Item("StartTime")
-                EndTime = drTimeSheets.Item("EndTime")
-                fTravelTime = drTimeSheets.Item("fTravelTime")
-                fPerDiem = drTimeSheets.Item("fPerDiem")
-                Approved = drTimeSheets.Item("Approved")
-                StartAddress = drTimeSheets.Item("StartAddress")
-                EndAddress = drTimeSheets.Item("EndAddress")
-                ShiftID = drTimeSheets.Item("ShiftID")
-                fType = drTimeSheets.Item("fType")
-                fShiftType = drTimeSheets.Item("fShiftType")
-                fInjured = drTimeSheets.Item("fInjured")
-                fComments = drTimeSheets.Item("fComments")
-                fProjectName = drTimeSheets.Item("fProjectName")
-                StartLatitude = drTimeSheets.Item("StartLatitude")
-                StartLongitude = drTimeSheets.Item("StartLongitude")
-                EndLatitude = drTimeSheets.Item("EndLatitude")
-                EndLongitude = drTimeSheets.Item("EndLongitude")
-                fPW = drTimeSheets.Item("fPW")
-                ApprovedInitials = drTimeSheets.Item("Initials")
-                EnteredOn = drTimeSheets.Item("EnteredOn")
-                EnteredManually = drTimeSheets.Item("EnteredManually")
-                ApprovedOn = drTimeSheets.Item("ApprovedOn")
+                TimeEntryID = SafeString(drTimeSheets.Item("TimeEntryID"))
+                fPM = SafeString(drTimeSheets.Item("fPM"))
+                fJobNumber = SafeString(drTimeSheets.Item("fJobNumber"))
+                fState = SafeString(drTimeSheets.Item("fState"))
+                StartTime = SafeString(drTimeSheets.Item("StartTime"))
+                EndTime = SafeString(drTimeSheets.Item("EndTime"))
+                fTravelTime = SafeString(drTimeSheets.Item("fTravelTime"))
+                fPerDiem = SafeString(drTimeSheets.Item("fPerDiem"))
+                Approved = SafeString(drTimeSheets.Item("Approved"))
+                StartAddress = SafeString(drTimeSheets.Item("StartAddress"))
+                EndAddress = SafeString(drTimeSheets.Item("EndAddress"))
+                ShiftID = SafeString(drTimeSheets.Item("ShiftID"))
+                fType = SafeString(drTimeSheets.Item("fType"))
+                fShiftType = SafeString(drTimeSheets.Item("fShiftType"))
+                fInjured = SafeString(drTimeSheets.Item("fInjured"))
+                fComments = SafeString(drTimeSheets.Item("fComments"))
+                fProjectName = SafeString(drTimeSheets.Item("fProjectName"))
+                StartLatitude = SafeString(drTimeSheets.Item("StartLatitude"))
+                StartLongitude = SafeString(drTimeSheets.Item("StartLongitude"))
+                EndLatitude = SafeString(drTimeSheets.Item("EndLatitude"))
+                EndLongitude = SafeString(drTimeSheets.Item("EndLongitude"))
+                fPW = SafeString(drTimeSheets.Item("fPW"))
+                ApprovedInitials = SafeString(drTimeSheets.Item("Initials"))
+                EnteredOn = SafeString(drTimeSheets.Item("EnteredOn"))
+                EnteredManually = SafeString(drTimeSheets.Item("EnteredManually"))
+                ApprovedOn = SafeString(drTimeSheets.Item("ApprovedOn"))
 
 
                 Dim sStartTime As String, sEndTime As String
@@ -618,9 +618,9 @@ Partial Class worker
             drWorker = cmdWorker.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drWorker.Read()
 
-                returnstring = returnstring & "<option value=""worker.aspx?id=" & drWorker.Item("EmployeeID") & "&startdate=" & StartDate & "&enddate=" & EndDate & """"
+                returnstring = returnstring & "<option value=""worker.aspx?id=" & SafeString(drWorker.Item("EmployeeID")) & "&startdate=" & StartDate & "&enddate=" & EndDate & """"
                 If drWorker.Item("EmployeeID") = CurrentEmployee Then returnstring = returnstring & " selected"
-                returnstring = returnstring & ">" & drWorker.Item("LastName") & ", " & drWorker.Item("FirstName") & "</option>"
+                returnstring = returnstring & ">" & SafeString(drWorker.Item("LastName")) & ", " & SafeString(drWorker.Item("FirstName")) & "</option>"
 
             End While
         Catch ex As Exception
@@ -652,7 +652,7 @@ Partial Class worker
             ConnCheckNotes.Open()
             drCheckNotes = CmdCheckNotes.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheckNotes.Read()
-                NotesText = drCheckNotes.Item("NotesText")
+                NotesText = SafeString(drCheckNotes.Item("NotesText"))
             End While
         Catch ex As Exception
             LogError("ax-worker.aspx.vb :: GetWeekNotes", ex.ToString)

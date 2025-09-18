@@ -56,28 +56,28 @@ Partial Class employees
             drGetUser = cmdGetUser.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drGetUser.Read
 
-                Username = drGetUser.Item("Username")
-                Password = drGetUser.Item("Password")
-                FirstName = drGetUser.Item("FirstName")
-                LastName = drGetUser.Item("LastName")
-                Email = If(IsDBNull(drGetUser.Item("Email")), "", drGetUser.Item("Email").ToString())
-                Initials = drGetUser.Item("Initials")
-                CellPhone = drGetUser.Item("CellPhone")
-                PayrollID = drGetUser.Item("PayrollID")
-                Worker = drGetUser.Item("Worker")
-                PM = drGetUser.Item("PM")
-                Clerk = drGetUser.Item("Clerk")
-                Active = drGetUser.Item("Active")
-                PerDiem = drGetUser.Item("PerDiem")
-                OfficeID = drGetUser.Item("OfficeID")
-                Type = drGetUser.Item("Type")
-                TravelMultiplierCompany = drGetUser.Item("TravelMultiplierCompany")
-                TravelMultiplierPersonal = drGetUser.Item("TravelMultiplierPersonal")
-                PartTime = drGetUser.Item("PartTime")
-                ReadOnlyAccess = drGetUser.Item("ReadOnlyAccess")
-                EmployeeGroup = drGetUser.Item("EmployeeGroup")
-                LimitedView = drGetUser.Item("LimitedView")
-                Department = drGetUser.Item("Department")
+                Username = SafeString(drGetUser.Item("Username"))
+                Password = SafeString(drGetUser.Item("Password"))
+                FirstName = SafeString(drGetUser.Item("FirstName"))
+                LastName = SafeString(drGetUser.Item("LastName"))
+                Email = If(IsDBNull(SafeString(drGetUser.Item("Email"))), "", SafeString(drGetUser.Item("Email").ToString()))
+                Initials = SafeString(drGetUser.Item("Initials"))
+                CellPhone = SafeString(drGetUser.Item("CellPhone"))
+                PayrollID = SafeString(drGetUser.Item("PayrollID"))
+                Worker = SafeString(drGetUser.Item("Worker"))
+                PM = SafeString(drGetUser.Item("PM"))
+                Clerk = SafeString(drGetUser.Item("Clerk"))
+                Active = SafeString(drGetUser.Item("Active"))
+                PerDiem = SafeString(drGetUser.Item("PerDiem"))
+                OfficeID = SafeString(drGetUser.Item("OfficeID"))
+                Type = SafeString(drGetUser.Item("Type"))
+                TravelMultiplierCompany = SafeString(drGetUser.Item("TravelMultiplierCompany"))
+                TravelMultiplierPersonal = SafeString(drGetUser.Item("TravelMultiplierPersonal"))
+                PartTime = SafeString(drGetUser.Item("PartTime"))
+                ReadOnlyAccess = SafeString(drGetUser.Item("ReadOnlyAccess"))
+                EmployeeGroup = SafeString(drGetUser.Item("EmployeeGroup"))
+                LimitedView = SafeString(drGetUser.Item("LimitedView"))
+                Department = SafeString(drGetUser.Item("Department"))
 
             End While
         Catch ex As Exception
@@ -134,8 +134,8 @@ Partial Class employees
 
             Dim Username As String, Email As String, Password As String = "", FirstName As String, Lastname As String, Initials As String, CellPhone As String, PerDiem As Double, PayrollID As String, OfficeID As Integer, Type As String, TravelMultiplierCompany As Double = 0, TravelMultiplierPersonal As Double = 0, PartTime As Integer = 0, ReadOnlyAccess As Integer = 0
             Dim Active As Integer = 0, Worker As Integer = 0, PM As Integer = 0, Clerk As Integer = 0, sPerDiem As String, EmployeeGroup As String, LimitedView As Integer = 0, Department As String = ""
-            EmployeeID = Request.QueryString("id")
 
+            EmployeeID = Request.QueryString("id")
 
             Username = TXT_Username.Text
             Password = TXT_password.Text
@@ -183,11 +183,7 @@ Partial Class employees
             Dim connEmployee As New SqlConnection(sConnection)
             Dim cmdEmployee As New SqlCommand(qEmployee, connEmployee)
 
-            If String.IsNullOrWhiteSpace(Email) Then
-                cmdEmployee.Parameters.Add(New SqlParameter("@Email", DBNull.Value))
-            Else
-                cmdEmployee.Parameters.Add(New SqlParameter("@Email", Email))
-            End If
+            cmdEmployee.Parameters.Add(New SqlParameter("@Email", Email))
             cmdEmployee.Parameters.Add(New SqlParameter("@FirstName", FirstName))
             cmdEmployee.Parameters.Add(New SqlParameter("@LastName", Lastname))
             cmdEmployee.Parameters.Add(New SqlParameter("@Initials", Initials))

@@ -219,11 +219,11 @@ Partial Class payroll_spreadsheetv2
             Dim odd As Boolean = False
             For Each drEmployee As DataRow In dtEmployees.Rows
 
-                FirstName = drEmployee.Item("FirstName")
-                LastName = drEmployee.Item("LastName")
-                PayrollID = drEmployee.Item("PayrollID")
-                EmployeeID = drEmployee.Item("EmployeeID")
-                Type = drEmployee.Item("Type")
+                FirstName = SafeString(drEmployee.Item("FirstName"))
+                LastName = SafeString(drEmployee.Item("LastName"))
+                PayrollID = SafeString(drEmployee.Item("PayrollID"))
+                EmployeeID = SafeString(drEmployee.Item("EmployeeID"))
+                Type = SafeString(drEmployee.Item("Type"))
 
 
                 If PayrollID = "98563" Then
@@ -240,12 +240,12 @@ Partial Class payroll_spreadsheetv2
                 For Each drJob As DataRow In filteredJobs
 
 
-                    fJobNumber = drJob.Item("fJobNumber")
-                    fPW = drJob.Item("fPW")
+                    fJobNumber = SafeString(drJob.Item("fJobNumber"))
+                    fPW = SafeString(drJob.Item("fPW"))
 
 
-                    fShiftType = drJob.Item("fShiftType")
-                    fState = drJob.Item("fState")
+                    fShiftType = SafeString(drJob.Item("fShiftType"))
+                    fState = SafeString(drJob.Item("fState"))
 
                     Dim arrJobNumber As String() = fJobNumber.Split("-")
                     Dim jobP1 As String = "", jobP2 As String = "", jobP3 As String = "", jobP4 As String = "", fullcode As String = ""
@@ -309,8 +309,8 @@ Partial Class payroll_spreadsheetv2
                     Dim Bonus As Double = 0, Notes As String = ""
                     Dim filteredBonuses() As DataRow = dtBonus.Select("EmployeeID=" & EmployeeID & " And StartDate = '" & StartDate & "' and JobNumber='" & fJobNumber & "' and PW='" & fPW & "' and State='" & fState & "'")
                     For Each drBonus As DataRow In filteredBonuses
-                        Bonus = drBonus.Item("Bonus")
-                        Notes = drBonus.Item("Notes")
+                        Bonus = SafeString(drBonus.Item("Bonus"))
+                        Notes = SafeString(drBonus.Item("Notes"))
                     Next
 
                     Dim empStr As New List(Of EmployeeRow)()
@@ -633,10 +633,10 @@ Partial Class payroll_spreadsheetv2
             Dim filteredAdjustments() As DataRow = dtAdjustments.Select("EmployeeID=" & EmployeeID & " and DateAdjusted = '" & DateToRun.ToString("MM-dd-yyyy") & "' and JobNumber='" & JobNumber & "' and PW='" & PW & "' and State='" & state & "'")
 
             For Each drAdjustment As DataRow In filteredAdjustments
-                adjCompany = drAdjustment.Item("Company")
-                adjPersonal = drAdjustment.Item("Personal")
-                adjStandardTime = drAdjustment.Item("StandardTime")
-                adjOvertime = drAdjustment.Item("Overtime")
+                adjCompany = SafeString(drAdjustment.Item("Company"))
+                adjPersonal = SafeString(drAdjustment.Item("Personal"))
+                adjStandardTime = SafeString(drAdjustment.Item("StandardTime"))
+                adjOvertime = SafeString(drAdjustment.Item("Overtime"))
             Next
 
 
@@ -646,11 +646,11 @@ Partial Class payroll_spreadsheetv2
             For Each drDay As DataRow In filteredTimeEntries
 
 
-                StartTime = drDay.Item("StartTime")
-                Endtime = drDay.Item("EndTime")
+                StartTime = SafeString(drDay.Item("StartTime"))
+                Endtime = SafeString(drDay.Item("EndTime"))
                 'Overtime = drDay.Item("Overtime")
-                Travel = drDay.Item("fTravelTime")
-                PerDiem = drDay.Item("fPerDiem")
+                Travel = SafeString(drDay.Item("fTravelTime"))
+                PerDiem = SafeString(drDay.Item("fPerDiem"))
 
                 If PerDiem = "" Then
                     PDHrs = "No"
@@ -769,7 +769,7 @@ Partial Class payroll_spreadsheetv2
             If PMList = "" Then
                 PMList = drEmployee.Item("EmployeeID")
             Else
-                PMList = PMList & "," & UCase(drEmployee.Item("EmployeeID"))
+                PMList = PMList & "," & UCase(SafeString(drEmployee.Item("EmployeeID")))
             End If
         Next
 
@@ -813,7 +813,7 @@ Partial Class payroll_spreadsheetv2
             ConnCheckSettings.Open()
             drCheckSettings = CmdCheckSettings.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheckSettings.Read()
-                SettingsText = drCheckSettings.Item("SettingValue")
+                SettingsText = SafeString(drCheckSettings.Item("SettingValue"))
             End While
         Catch ex As Exception
 

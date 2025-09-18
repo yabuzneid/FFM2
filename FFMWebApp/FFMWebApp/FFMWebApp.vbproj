@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="addtime.aspx" />
     <Content Include="App_Code\GlobalClass.aspx" />
+    <Content Include="ax-editpayroll.aspx" />
     <Content Include="ax-edittimesheet.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="employees.aspx" />
@@ -168,6 +169,16 @@
     <Compile Include="App_Code\GlobalClass.aspx.vb">
       <DependentUpon>GlobalClass.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ax-editpayroll.aspx.designer.vb">
+      <DependentUpon>ax-editpayroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ax-editpayroll.aspx.vb">
+      <DependentUpon>ax-editpayroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ax-edittimesheet.aspx.designer.vb">
+      <DependentUpon>ax-edittimesheet.aspx</DependentUpon>
     </Compile>
     <Compile Include="ax-edittimesheet.aspx.vb">
       <DependentUpon>ax-edittimesheet.aspx</DependentUpon>
@@ -364,14 +375,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
-    <None Include="App_WebReferences\gwCompanyAdmin\CompanyAdminService-0.discomap" />
-    <None Include="App_WebReferences\gwCompanyAdmin\CompanyAdminService-0.wsdl" />
-    <None Include="App_WebReferences\gwUserStatus\UserStatusService-0.discomap" />
-    <None Include="App_WebReferences\gwUserStatus\UserStatusService-0.wsdl" />
-    <None Include="App_WebReferences\prodCompanyAdmin\CompanyAdminService-0.0.1.wsdl" />
-    <None Include="App_WebReferences\prodCompanyAdmin\CompanyAdminService-0.discomap" />
-    <None Include="App_WebReferences\prodUserStatus\UserStatusService-0.0.1.wsdl" />
-    <None Include="App_WebReferences\prodUserStatus\UserStatusService-0.discomap" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

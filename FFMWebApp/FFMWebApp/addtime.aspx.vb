@@ -231,7 +231,7 @@ Partial Class addtime
             drNewShift = cmdNewShift.ExecuteReader(System.Data.CommandBehavior.CloseConnection)
 
             While drNewShift.Read()
-                ReturnedShiftID = drNewShift.Item(0)
+                ReturnedShiftID = SafeString(drNewShift.Item(0))
             End While
 
         Catch ex As Exception
@@ -362,8 +362,8 @@ Partial Class addtime
             connOffices.Open()
             drOffices = cmdOffices.ExecuteReader(CommandBehavior.CloseConnection)
             While drOffices.Read()
-                OfficeID = drOffices.Item("OfficeID")
-                OfficeName = drOffices.Item("OfficeName")
+                OfficeID = SafeString(drOffices.Item("OfficeID"))
+                OfficeName = SafeString(drOffices.Item("OfficeName"))
 
                 DDL_Employee.Items.Add(New ListItem("- ALL " & OfficeName & " -", "office" & OfficeID.ToString))
 
@@ -392,7 +392,7 @@ Partial Class addtime
             connCheck.Open()
             drCheck = cmdCheck.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drCheck.Read
-                If drCheck.Item(0) > 0 Then
+                If SafeString(drCheck.Item(0)) > 0 Then
                     PMExists = True
                 End If
             End While

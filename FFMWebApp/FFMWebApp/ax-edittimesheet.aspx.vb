@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-
-Partial Class ax_edittimesheet
+Public Class ax_edittimesheet
     Inherits GlobalClass
 
 
@@ -35,20 +34,20 @@ Partial Class ax_edittimesheet
 
             ElseIf Request.QueryString("action") = "showjobnumberform" Then
 
-                Dim TimeEntryID As Integer = request.form("timeentryid")
-                Dim JobNumber As String = request.form("jobnumber")
+                Dim TimeEntryID As Integer = Request.Form("timeentryid")
+                Dim JobNumber As String = Request.Form("jobnumber")
 
-                Response.write(ShowJobNumberForm(JobNumber, TimeEntryID))
+                Response.Write(ShowJobNumberForm(JobNumber, TimeEntryID))
 
             ElseIf Request.QueryString("action") = "savejobnumberform" Then
 
-                Dim TimeEntryID As Integer = request.form("timeentryid")
-                Dim JobNum1 As String = request.form("jobnum1")
-                Dim JobNum2 As String = request.form("jobnum2")
-                Dim JobNum3 As String = request.form("jobnum3")
-                Dim JobNum4 As String = request.form("jobnum4")
+                Dim TimeEntryID As Integer = Request.Form("timeentryid")
+                Dim JobNum1 As String = Request.Form("jobnum1")
+                Dim JobNum2 As String = Request.Form("jobnum2")
+                Dim JobNum3 As String = Request.Form("jobnum3")
+                Dim JobNum4 As String = Request.Form("jobnum4")
 
-                Response.write(SaveJobNumberForm(TimeEntryID, JobNum1, JobNum2, JobNum3, JobNum4))
+                Response.Write(SaveJobNumberForm(TimeEntryID, JobNum1, JobNum2, JobNum3, JobNum4))
 
             Else
 
@@ -219,7 +218,7 @@ Partial Class ax_edittimesheet
 
         Dim FullJobNumber As String = JobNum1 & "-" & JobNum2 & "-" & JobNum3
 
-        If len(JobNum4) > 0 Then
+        If Len(JobNum4) > 0 Then
             FullJobNumber = FullJobNumber & "-" & JobNum4
         End If
 
@@ -255,10 +254,10 @@ Partial Class ax_edittimesheet
         'FIGURE OUT IF NUMBER IS VALID
         JobNumber = Regex.Replace(JobNumber, "[^0-9]", "")
 
-        If Not len(JobNumber) = 10 And Not len(JobNumber) = 13 Then
+        If Not Len(JobNumber) = 10 And Not Len(JobNumber) = 13 Then
             IsItValid = False
         Else
-            If Not JobNumber.substring(0, 2) = "01" Then
+            If Not JobNumber.Substring(0, 2) = "01" Then
                 IsItValid = False
             Else
                 If Not JobNumber.Substring(2, 2) = "01" And Not JobNumber.Substring(2, 2) = "02" And Not JobNumber.Substring(2, 2) = "03" And Not JobNumber.Substring(2, 2) = "04" And Not JobNumber.Substring(2, 2) = "12" And Not JobNumber.Substring(2, 2) = "14" And Not JobNumber.Substring(2, 2) = "15" Then
@@ -268,11 +267,11 @@ Partial Class ax_edittimesheet
         End If
 
         If IsItValid = True Then
-            JobNum1 = JobNumber.substring(0, 2)
-            JobNum2 = JobNumber.substring(2, 2)
-            JobNum3 = JobNumber.substring(4, 6)
-            If len(JobNumber) = 13 Then
-                JobNum4 = JobNumber.substring(10, 3)
+            JobNum1 = JobNumber.Substring(0, 2)
+            JobNum2 = JobNumber.Substring(2, 2)
+            JobNum3 = JobNumber.Substring(4, 6)
+            If Len(JobNumber) = 13 Then
+                JobNum4 = JobNumber.Substring(10, 3)
             End If
         End If
 
@@ -431,5 +430,6 @@ Partial Class ax_edittimesheet
 
 
     End Function
+
 
 End Class

@@ -45,9 +45,9 @@ Partial Class MasterPage
             connUser.Open()
             drUser = cmdUser.ExecuteReader(Data.CommandBehavior.CloseConnection)
             While drUser.Read
-                FirstName = drUser.Item("FirstName")
-                LastName = drUser.Item("LastName")
-                OfficeName = drUser.Item("OfficeName")
+                FirstName = GlobalClass.SafeString(drUser.Item("FirstName"))
+                LastName = GlobalClass.SafeString(drUser.Item("LastName"))
+                OfficeName = GlobalClass.SafeString(drUser.Item("OfficeName"))
             End While
         Catch ex As Exception
             'LogError("MasterPage.Master.vb :: GetCurrentUser", ex.ToString)
